@@ -1,3 +1,25 @@
+function loginTrigger() {
+    boardLogin.style.display = 'flex'
+    containerLogin.classList.add('animate__fadeInDown')
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
@@ -36,12 +58,19 @@ const colorTextBlack = '--black-color'
 let messValids = $$('.form-valid')
 
 buttonForm = function(
+    name,
     button,
     colorBg,
     colorText,
     board
 ) {
     button.onclick = () => {
+        if(name === "addMember" || name === "addAchivement" || name === "noticeTheEnd") {
+            if(!getCookie("loggedIn")) {
+                loginTrigger();
+                return;
+            }
+        }
         listitems.forEach((item) => {
             item.style.backgroundColor = `var(${colorBg})`
             item.style.color = `var(${colorText})` 
@@ -70,6 +99,7 @@ buttonForm = function(
 }
 
 buttonForm(
+    "addAchivement",
     addAchivement,
     colorBgYellow,
     colorTextBlack,
@@ -77,6 +107,7 @@ buttonForm(
 )
 
 buttonForm(
+    "noticeTheEnd",
     noticeTheEnd,
     colorBgPrussianBlue,
     colorTextWhite,
@@ -84,6 +115,7 @@ buttonForm(
 )
 
 buttonForm(
+    "addMember",
     addMember,
     colorBgButteryWhite,
     colorTextBlack,
@@ -91,6 +123,7 @@ buttonForm(
 )
 
 buttonForm(
+    "searchMember",
     searchMember,
     colorBgBrinkPink,
     colorTextBlack,
@@ -98,6 +131,7 @@ buttonForm(
 )
 
 buttonForm(
+    "makeAnnualReport",
     makeAnnualReport,
     colorBgSaimon,
     colorTextBlack,
@@ -112,15 +146,20 @@ let buttonClose = $('.introduction-icon')
 
 buttons.forEach((item) => {
     item.onclick = () => {
-        infoboards.forEach((item) => {
-            item.style.display = 'none'
-        })
-
-        infoForms.forEach((item) => {
-            item.style.display = 'flex'
-        })
-
-        buttonClose.style.display = 'block'
+        console.log("a");
+        if(getCookie("loggedIn")) {
+            infoboards.forEach((item) => {
+                item.style.display = 'none'
+            })
+    
+            infoForms.forEach((item) => {
+                item.style.display = 'flex'
+            })
+    
+            buttonClose.style.display = 'block'
+        } else {
+            loginTrigger();
+        }
     }
 })
 

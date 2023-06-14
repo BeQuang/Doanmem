@@ -1,10 +1,40 @@
 const submitSearch = $('.btn.form-btn.Brink-Pink-bg')
 
+let memberCodeSearch = document.querySelector('#fullname.Brink-Pink-hover')
+let idMemberCodeSearch
+let memberCodeSearchoption = $('#oldMember.Brink-Pink-hover')
+
+memberCodeSearch.onblur = () => {
+    idMemberCodeSearch = memberCodeSearch.value
+    console.log(idMemberCodeSearch)
+    url = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(idMemberCodeSearch)
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            let members = data['members']
+            let htmls = ['<option value="-1">-- Option --</option>']
+            htmls.push(members.map((member) => {
+                return `
+                        <option value="${member.id}">${member.id}</option> 
+                    `
+            }))
+
+            memberCodeSearchoption.innerHTML = htmls.join('\n')
+        })
+        .catch(error => {
+
+            // Handle any errors that occur
+        });
+
+
+}
+
 submitSearch.addEventListener('click', function (e) {
     e.preventDefault(); // Ngăn chặn hành vi mặc định của nút submit
 
     let fullnameInput = document.querySelector('#fullname.Brink-Pink-hover').value;
-    let idMemberInput = document.querySelector('#oldMember.Brink-Pink-hover').value;
+    let memberCodeInput = document.querySelector('#oldMember.Brink-Pink-hover').value;
     let birthdayInput = document.querySelector('#birthDay.Brink-Pink-hover').value;
     let generationInput = document.querySelector('#generation.Brink-Pink-hover').value;
 
@@ -42,9 +72,9 @@ submitSearch.addEventListener('click', function (e) {
         url += `birthday=${encodedBirthday}&`;
     }
 
-    if (idMemberInput.trim() !== '-1') {
-        const encodedIdMember = encodeURIComponent(idMemberInput);
-        url += `id_old_member=${encodedIdMember}&`;
+    if (memberCodeInput.trim() !== '-1') {
+        const encodedIdMember = encodeURIComponent(memberCodeInput);
+        url += `id=${encodedIdMember}&`;
     }
 
     if (generationInput.trim() !== '') {

@@ -42,10 +42,6 @@
     width: 100%;
 }
 
-.form-control {
-    z-index: 1;
-}
-
 .form-option {
     position: absolute;
     bottom: 0;

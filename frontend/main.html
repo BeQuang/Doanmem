@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./assets/css/information.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="stylesheet" href="./assets/css/boxup.css">
+    <link rel="stylesheet" href="./assets/css/report.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap"
         rel="stylesheet">
@@ -320,19 +321,19 @@
     </footer>
 
     <div class="boxup">
-        <div class="boxup-container">
+        <div class="boxup-container animate__animated">
             <div class="boxup-icon">
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="boxup-title">MEMBER INFORMATION</div>
             <div class="boxup-info">
                 <div class="row">
-                    <div class="form-group">
+                    <div class="boxup-form form-group">
                         <label for="fullname" class="form-label">Full Name</label>
                         <input id="fullname" name="fullname" type="text" placeholder="Full name"
                             class="form-control Buttery-White-hover">
                     </div>
-                    <div class="form-group">
+                    <div class="boxup-form form-group">
                         <label for="sex" class="form-label">Sex</label>
                         <select id="sex" name="sex" class="form-control Buttery-White-hover">
                             <option value="">-- Chọn giới tính --</option>
@@ -341,25 +342,66 @@
                             <option value="-1">Khác</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="boxup-form form-group">
                         <label for="job" class="form-label">Job</label>
                         <select id="job" name="job" class="form-control Buttery-White-hover"></select>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
+                    <div class="boxup-form form-group">
                         <label for="birthDay" class="form-label">Birthday</label>
                         <input id="birthDay" name="birthDay" type="date" class="form-control Buttery-White-hover">
                     </div>
-                    <div class="form-group">
+                    <div class="boxup-form form-group">
                         <label for="country" class="form-label">Country</label>
                         <select id="country" name="country" class="form-control Buttery-White-hover"></select>
                     </div>
-                    <div class="form-group">
+                    <div class="boxup-form form-group">
                         <label for="address" class="form-label">Address</label>
                         <input id="address" name="address" type="text" placeholder="Address"
                             class="form-control Buttery-White-hover">
                     </div>
+                </div>
+                <div class="row">
+                    <div class="boxup-form form-group">
+                        <label for="oldMember" class="form-label">Old member</label>
+                        <select id="oldMember" name="oldMember" class="form-control Brink-Pink-hover"></select>
+                    </div>
+                    <div class="boxup-form form-group">
+                        <label for="relationDay" class="form-label">Date of Relationship</label>
+                        <input id="relationDay" name="relationDay" type="date" class="form-control Buttery-White-hover">
+                    </div>
+                    <div class="boxup-form form-group">
+                        <label for="relationship" class="form-label">Relationship</label>
+                        <select id="relationship" name="relationship" class="form-control Brink-Pink-hover"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="boxup-form form-group">
+                        <label for="deathDay" class="form-label">Death Date</label>
+                        <input id="deathDay" name="deathDay" type="date" class="form-control Prussian-Blue-hover">
+                    </div>
+                    <div class="boxup-form form-group">
+                        <label for="reasonDeath" class="form-label">Reason of the Death</label>
+                        <select id="reasonDeath" name="reasonDeath" class="form-control Prussian-Blue-hover"></select>
+                    </div>
+                    <div class="boxup-form form-group">
+                        <label for="burial" class="form-label">Burial site</label>
+                        <select id="burial" name="burial" class="form-control Prussian-Blue-hover"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="boxup-button update">Update</div>
+                    <div class="boxup-button delete">Delete</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="report">
+            <div class="report-container">
+                <div class="report-close">
+                    <i class="fa-solid fa-xmark"></i>
                 </div>
             </div>
         </div>
@@ -367,6 +409,7 @@
         <script src="./assets/js/introduction.js"></script>
         <script src="./assets/js/render.js"></script>
         <script src="./assets/js/showOption.js"></script>
+        <script src="./assets/js/boxup.js"></script>
 </body>
 
 </html>

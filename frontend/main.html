@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="stylesheet" href="./assets/css/boxup.css">
     <link rel="stylesheet" href="./assets/css/report.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap"
         rel="stylesheet">
@@ -30,6 +31,7 @@
             <div class="navbar-item">Feature</div>
             <div class="navbar-item">Event</div>
             <div class="navbar-item">Information</div>
+            <div class="navbar-item nav-login">Login</div>
         </div>
     </div>
 
@@ -553,11 +555,38 @@
         </div>
     </div>
 
+    <!--Login Modal -->
+    <div class="login">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="login-icon"></div>
+            </div>
+            <div class="login-content">
+                <div class="login-title">Admin Login</div>
+                <div class="login-body">
+                    <div class="login-form">
+                        <label for="uname" class="login-label">Username</label>
+                        <input id="username" class="login-input" type="text" placeholder="Enter Username" name="uname" required>
+                        <label for="psw" class="login-label" style="margin-top: 24px;">Password</label>
+                        <input id="password" class="login-input" type="password" placeholder="Enter Password" name="psw" required>
+                        <div class="login-forgot">
+                            <div class="login-link">Forgot password?</div>
+                        </div>
+                        <button class="login-button">Login</button>
+                        <button class="logout-button">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
     <script src="./assets/js/introduction.js"></script>
     <script src="./assets/js/render.js"></script>
     <script src="./assets/js/boxup.js"></script>
     <script src="./assets/js/submitFormAdd.js"></script>
     <script src="./assets/js/submitFormSearch.js"></script>
+    <script src="./assets/js/login.js"></script>
+    <script src="./assets/js/checkinLogin.js"></script>
 </body>
 
 </html>

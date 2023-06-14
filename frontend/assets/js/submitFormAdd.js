@@ -20,8 +20,6 @@ submitAddMember.addEventListener('click', function (event) {
     const jobInput = document.querySelector('#job.Buttery-White-hover');
 
 
-
-
     const fullname = fullnameInput.value;
     const oldMember = idMemberInput.value;
     const sex = sexInput.value;
@@ -43,7 +41,9 @@ submitAddMember.addEventListener('click', function (event) {
     formData.append('id_relation', relation);
     formData.append('id_job', job);
     formData.append('id_home_town', country);
-    formData.append('id_old_member', oldMember);
+    if (oldMember === -1){
+        formData.append('id_old_member', oldMember);
+    }
     formData.append('create_at', relationday);
 
 

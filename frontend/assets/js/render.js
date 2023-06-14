@@ -5,10 +5,7 @@ const optionReasonDeath = $('#reasonDeath')
 const optionRelationAddMember = $('#relationship.Buttery-White-hover')
 const optionRelationSearch = $('#relationship.Brink-Pink-hover')
 const optionDeathLocation = $('#burial')
-const optionIdMemberAddAchivement = $('#oldMember.Yellow-hover')
-const optionIdMemberNoticeTheEnd = $('#oldMember.Prussian-Blue-hover')
 const optionIdMemberAddMember = $('#oldMember.Buttery-White-hover')
-const optionIdMemberSearch = $('#oldMember.Brink-Pink-hover')
 
 const optionJobBox = $('#job.boxup-style')
 const optionCountryBox = $('#country.boxup-style')
@@ -26,17 +23,14 @@ const render = {
             .then(data => {
                 // console.log(data[''])
                 let members = data['members']
-                let htmls = ['<option value="-1">-- Option --</option>']
+                let htmls = ['<option value=-1>-- Option --</option>']
                 htmls.push(members.map((member) => {
                     return `
                         <option value="${member.id}">${member.name}</option> 
                     `
                 }))
 
-                optionIdMemberAddAchivement.innerHTML = htmls.join('\n')
-                optionIdMemberNoticeTheEnd.innerHTML = htmls.join('\n')
-                optionIdMemberAddMember.innerHTML = htmls.join('\n')
-                optionIdMemberSearch.innerHTML = htmls.join('\n')
+                optionIdMemberAddMember.innerHTML = htmls.join('\n')        
                 optionOldMemberBox.innerHTML = htmls.join('\n')
                 
             })

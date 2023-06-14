@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 .form-container {
@@ -39,4 +40,19 @@
     outline: none;
     font-size: 1.4rem;
     width: 100%;
+}
+
+.form-control {
+    z-index: 1;
+}
+
+.form-option {
+    position: absolute;
+    bottom: 0;
+}
+
+.form-btn {
+    padding: 12px 0;
+    margin: 24px;
+    cursor: pointer;
 }

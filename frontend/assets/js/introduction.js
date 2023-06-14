@@ -99,89 +99,34 @@ buttonForm(
     boardMakeAnnualReport
 )
 
+const buttons = $$('.board-btn')
+let infoboards = $$('.introduction-board')
+let infoForms = $$('.introduction-form')
 
-// 
+let buttonClose = $('.introduction-icon')
 
+buttons.forEach((item) => {
+    item.onclick = () => {
+        infoboards.forEach((item) => {
+            item.style.display = 'none'
+        })
 
-// const infoSearchError = $('.infoSearch-valid')
-// const listSearch = $('.infoSearch')
+        infoForms.forEach((item) => {
+            item.style.display = 'flex'
+        })
 
-// buttonSubmit = function (
-    //     colorBg,
-    //     colorText,
-    //     boardElement,
-    //     boardAdminElement
-    // ) {
-    //     buttonClick.onclick = () => {
-//     buttonClick,
-//         listitems.forEach((item) => {
-//             item.style.backgroundColor = `var(${colorBg})`
-//             item.style.color = `var(${colorText})`
-//             item.style.padding = '26px 0'
-//             item.classList.remove('animate__zoomIn')
-//         })
-    
+        buttonClose.style.display = 'block'
+    }
+})
 
-    
-//         $('.introduction-board.active').classList.remove('active')
-//         $('.introduction-board--admin.active').classList.remove('active')
-    
-//         buttonClick.style.padding = '40px 0'
-//         buttonClick.classList.add('animate__zoomIn')
-    
-//         boardElement.classList.add('active')
-//         boardAdminElement.classList.add('active')
+buttonClose.onclick = () => {
+    infoboards.forEach((item) => {
+        item.style.display = 'flex'
+    })
 
-//         infoSearchError.style.display = 'none'
-//         listSearch.style.display = 'none'
-//     }
-    
-// }
+    infoForms.forEach((item) => {
+        item.style.display = 'none'
+    })
 
-// const buttonForms = $$('.introduction-button--admin')
-
-// const forms = $$('.introduction-find')
-// const descriptions = $$('.introduction-description')
-// const buttons = $$('.introduction-button--admin')
-
-// const back = $('.introduction-icon')
-// const buttonclose = $('.fa-solid.fa-arrow-left')
-
-// const formSearchNumber = $('.introduction-board--admin.Brink-Pink-border')
-// const buttonFormsearchNumber = $('.introduction-buttonform.Brink-Pink-bg')
-
-// const boxListSearch = $('.infoSearch');
-
-// buttonForms.forEach((item) => {
-//     item.onclick = () => {
-//         descriptions.forEach((description) => {
-//             description.style.display = 'none'
-//         })
-//         buttons.forEach((button) => {
-//             button.style.display = 'none'
-//         })
-    
-//         forms.forEach((form) => {
-//             form.style.display = 'block'
-//         })
-    
-//         back.style.display = 'block'
-//     }
-// })
-
-// buttonclose.onclick = () => {
-//     forms.forEach((form) => {
-//         form.style.display = 'none'
-//     })
-
-//     back.style.display = 'none'
-
-//     descriptions.forEach((description) => {
-//         description.style.display = 'block'
-//     })
-//     buttons.forEach((button) => {
-//         button.style.display = 'block'
-//     })
-//     boxListSearch.style.display = 'none'
-//     infoSearchError.style.display = 'none'
-// }
+    buttonClose.style.display = 'none'
+}

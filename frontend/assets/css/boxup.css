@@ -43,6 +43,10 @@
     padding: 32px 0;
 }
 
+.boxup-info {
+    width: 100%;
+}
+
 .introduction-form.boxup-style {
     width: 90%;
     padding: 4px 12px;

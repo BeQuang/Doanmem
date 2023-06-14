@@ -13,6 +13,7 @@
     position: absolute;
     left: 4%;
     display: none;
+    cursor: pointer;
 }
 
 .introduction-list {
@@ -47,7 +48,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: none;
+    /* display: none; */
 }
 
 .introduction-board__title {
@@ -61,8 +62,9 @@
 }
 
 .board-btn {
-    padding: 12px 0;
+    padding: 12px 12px;
     margin: 24px;
+    cursor: pointer;
 }
 
 

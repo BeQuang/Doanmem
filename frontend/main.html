@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="./assets/css/header.css">
     <link rel="stylesheet" href="./assets/css/introduction.css">
     <link rel="stylesheet" href="./assets/css/introduction_form.css">
+    <link rel="stylesheet" href="./assets/css/information.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/boxup.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap"
         rel="stylesheet">
@@ -55,72 +58,236 @@
                     <h1 class="introduction-board__title">Add achivement</h1>
                     <p class="introduction-script">Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet
                         commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue</p>
-                    <div class="btn board-btn Yellow-bg">Save</div>
+                    <div class="btn board-btn Yellow-bg">Get started</div>
                 </div>
 
                 <div class="introduction-form">
                     <h1 class="introduction-board__title">Add achivement</h1>
-                        <div class="form-container">
-                            <div class="row">
-                                <div class="form-group">
-                                    <label for="fullname" class="form-label">Full Name</label>
-                                    <input id="fullname" name="text" type="text" placeholder="Full name" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="achivement" class="form-label">Type of Achivement</label>
-                                    <select id="area" name="area" class="form-option"></select>
-                                    <input id="achivement" name="text" type="text" placeholder="Full name" class="form-control">
-                                </div>
+                    <div class="form-container">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="fullname" class="form-label">Full Name</label>
+                                <input id="fullname" name="fullname" type="text" placeholder="Full name"
+                                    class="form-control Yellow-hover">
                             </div>
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label for="fullname" class="form-label">Full Name</label>
-                                    <input id="fullname" name="text" type="text" placeholder="Full name" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="fullname" class="form-label">Full Name</label>
-                                    <input id="fullname" name="text" type="text" placeholder="Full name" class="form-control">
-                                </div>
+                            <div class="form-group">
+                                <label for="achivement" class="form-label">Type of Achivement</label>
+                                <select id="achivement" name="achivement" class="form-control Yellow-hover"></select>
                             </div>
                         </div>
-                    <div class="btn board-btn Yellow-bg">Submit</div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="oldMember" class="form-label">Old member</label>
+                                <select id="oldMember" name="oldMember" class="form-control Yellow-hover"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="achivementDay" class="form-label">Award Date</label>
+                                <input id="achivementDay" name="achivementDay" type="date"
+                                    class="form-control Yellow-hover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn form-btn Yellow-bg">Submit</div>
                 </div>
             </div>
-    
+
             <div class="introduction-container animate__animated Prussian-Blue-border">
                 <div class="introduction-board">
                     <h1 class="introduction-board__title">Add end</h1>
                     <p class="introduction-script">Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet
                         commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue</p>
-                    <div class="btn board-btn Prussian-Blue-bg">Save</div>
+                    <div class="btn board-btn Prussian-Blue-bg">Get started</div>
+                </div>
+
+                <div class="introduction-form">
+                    <h1 class="introduction-board__title">Add end</h1>
+                    <div class="form-container">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="fullname" class="form-label">Full Name</label>
+                                <input id="fullname" name="fullname" type="text" placeholder="Full name"
+                                    class="form-control Prussian-Blue-hover">
+                            </div>
+                            <div class="form-group">
+                                <label for="oldMember" class="form-label">Old member</label>
+                                <select id="oldMember" name="oldMember"
+                                    class="form-control Prussian-Blue-hover"></select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="deathDay" class="form-label">Death Date</label>
+                                <input id="deathDay" name="deathDay" type="date"
+                                    class="form-control Prussian-Blue-hover">
+                            </div>
+                            <div class="form-group">
+                                <label for="reasonDeath" class="form-label">Reason of the Death</label>
+                                <select id="reasonDeath" name="reasonDeath"
+                                    class="form-control Prussian-Blue-hover"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="burial" class="form-label">Burial site</label>
+                                <select id="burial" name="burial" class="form-control Prussian-Blue-hover"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn form-btn Prussian-Blue-bg">Submit</div>
                 </div>
             </div>
-    
+
             <div class="introduction-container animate__animated active Buttery-White-border">
                 <div class="introduction-board">
                     <h1 class="introduction-board__title">Add new member</h1>
                     <p class="introduction-script">Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet
                         commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue</p>
-                    <div class="btn board-btn Buttery-White-bg">Save</div>
+                    <div class="btn board-btn Buttery-White-bg">Get started</div>
+                </div>
+
+                <div class="introduction-form">
+                    <h1 class="introduction-board__title">Add new member</h1>
+                    <div class="form-container">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="fullname" class="form-label">Full Name</label>
+                                <input id="fullname" name="fullname" type="text" placeholder="Full name"
+                                    class="form-control Buttery-White-hover">
+                            </div>
+                            <div class="form-group">
+                                <label for="oldMember" class="form-label">Old member</label>
+                                <select id="oldMember" name="oldMember"
+                                    class="form-control Buttery-White-hover"></select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="sex" class="form-label">Sex</label>
+                                <select id="sex" name="sex" class="form-control Buttery-White-hover">
+                                    <option value="">-- Chọn giới tính --</option>
+                                    <option value="1">Nam</option>
+                                    <option value="2">Nữ</option>
+                                    <option value="-1">Khác</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="relationship" class="form-label">Relationship</label>
+                                <select id="relationship" name="relationship"
+                                    class="form-control Buttery-White-hover"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="birthDay" class="form-label">Birthday</label>
+                                <input id="birthDay" name="birthDay" type="date"
+                                    class="form-control Buttery-White-hover">
+                            </div>
+                            <div class="form-group">
+                                <label for="relationDay" class="form-label">Date of Relationship</label>
+                                <input id="relationDay" name="relationDay" type="date"
+                                    class="form-control Buttery-White-hover">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="country" class="form-label">Country</label>
+                                <select id="country" name="country" class="form-control Buttery-White-hover"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="form-label">Address</label>
+                                <input id="address" name="address" type="text" placeholder="Address"
+                                    class="form-control Buttery-White-hover">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="job" class="form-label">Job</label>
+                                <select id="job" name="job" class="form-control Buttery-White-hover"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn board-btn Buttery-White-bg">Submit</div>
                 </div>
             </div>
-    
+
             <div class="introduction-container animate__animated Brink-Pink-border">
                 <div class="introduction-board">
                     <h1 class="introduction-board__title">Search member</h1>
                     <p class="introduction-script">Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet
                         commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue</p>
-                    <div class="btn board-btn Brink-Pink-bg">Save</div>
+                    <div class="btn board-btn Brink-Pink-bg">Get started</div>
+                </div>
+
+                <div class="introduction-form">
+                    <h1 class="introduction-board__title">Search member</h1>
+                    <div class="form-container">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="fullname" class="form-label">Full Name</label>
+                                <input id="fullname" name="fullname" type="text" placeholder="Full name"
+                                    class="form-control Brink-Pink-hover">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthDay" class="form-label">Birthday</label>
+                                <input id="birthDay" name="birthDay" type="date" class="form-control Brink-Pink-hover">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="oldMember" class="form-label">Old member</label>
+                                <select id="oldMember" name="oldMember" class="form-control Brink-Pink-hover"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="relationship" class="form-label">Relationship</label>
+                                <select id="relationship" name="relationship"
+                                    class="form-control Brink-Pink-hover"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn form-btn Brink-Pink-bg">Submit</div>
                 </div>
             </div>
-    
+
             <div class="introduction-container animate__animated Saimon-border">
                 <div class="introduction-board">
                     <h1 class="introduction-board__title">Make annua report</h1>
                     <p class="introduction-script">Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet
                         commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue</p>
-                    <div class="btn board-btn Saimon-bg">Save</div>
+                    <div class="btn board-btn Saimon-bg">Get started</div>
+                </div>
+
+                <div class="introduction-form">
+                    <h1 class="introduction-board__title">Make annua report</h1>
+                    <div class="form-container">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="fromYear" class="form-label">From</label>
+                                <input id="fromYear" name="fromYear" type="text" placeholder="Year"
+                                    class="form-control Saimon-hover">
+                            </div>
+                            <div class="form-group">
+                                <label for="toYear" class="form-label">To</label>
+                                <input id="toYear" name="toYear" type="text" placeholder="Year"
+                                    class="form-control Saimon-hover">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="report" class="form-label">Type of report</label>
+                                <select id="report" name="report" class="form-control Saimon-hover">
+                                    <option value="-1">-- Option --</option>
+                                    <option value="0">Report UpDown</option>
+                                    <option value="1">Report Achivement</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn form-btn Saimon-bg">Submit</div>
                 </div>
             </div>
         </div>
@@ -128,24 +295,78 @@
 
         <div class="introduction-list">
             <div class="btn introduction-btn animate__animated btn-achivement">
-                <div class="introduction-name">Add achivement</div> 
+                <div class="introduction-name">Add achivement</div>
             </div>
             <div class="btn introduction-btn animate__animated btn-end">
-                <div class="introduction-name">Notice the end</div> 
+                <div class="introduction-name">Notice the end</div>
             </div>
             <div class="btn introduction-btn animate__animated btn-add">
-                <div class="introduction-name">Add member</div> 
+                <div class="introduction-name">Add member</div>
             </div>
             <div class="btn introduction-btn animate__animated btn-search">
-                <div class="introduction-name">Search member</div> 
+                <div class="introduction-name">Search member</div>
             </div>
             <div class="btn introduction-btn animate__animated btn-report">
-                <div class="introduction-name">Make anuual report</div> 
+                <div class="introduction-name">Make anuual report</div>
             </div>
         </div>
     </div>
 
-    <script src="./assets/js/introduction.js"></script>
+    <div class="infomation">
+        <div class="infomation-title">Information</div>
+    </div>
+    <footer class="footer">
+        <div class="footer-title">Logo</div>
+    </footer>
+
+    <div class="boxup">
+        <div class="boxup-container">
+            <div class="boxup-icon">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="boxup-title">MEMBER INFORMATION</div>
+            <div class="boxup-info">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <input id="fullname" name="fullname" type="text" placeholder="Full name"
+                            class="form-control Buttery-White-hover">
+                    </div>
+                    <div class="form-group">
+                        <label for="sex" class="form-label">Sex</label>
+                        <select id="sex" name="sex" class="form-control Buttery-White-hover">
+                            <option value="">-- Chọn giới tính --</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                            <option value="-1">Khác</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="job" class="form-label">Job</label>
+                        <select id="job" name="job" class="form-control Buttery-White-hover"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="birthDay" class="form-label">Birthday</label>
+                        <input id="birthDay" name="birthDay" type="date" class="form-control Buttery-White-hover">
+                    </div>
+                    <div class="form-group">
+                        <label for="country" class="form-label">Country</label>
+                        <select id="country" name="country" class="form-control Buttery-White-hover"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="form-label">Address</label>
+                        <input id="address" name="address" type="text" placeholder="Address"
+                            class="form-control Buttery-White-hover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./assets/js/introduction.js"></script>
+        <script src="./assets/js/render.js"></script>
+        <script src="./assets/js/showOption.js"></script>
 </body>
 
 </html>

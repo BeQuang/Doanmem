@@ -1,0 +1,113 @@
+.report {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    display: none;
+    display: flex;
+}
+
+.report-container {
+    background-color: #fff;
+    width: 80%;
+    min-height: 54%;
+    position: relative;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 16px solid var(--primary-Saimon-color);
+    position: relative;
+}
+
+.report-close {
+    font-size: 52px;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+}
+
+.report-updown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: none;
+}
+
+.report-achivement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.report-title {
+    font-size: 3.2rem;
+}
+
+.report-info {
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.report-box {
+    font-size: 1.8rem;  
+    display: flex;
+    font-weight: 600;
+}
+
+.report-text {
+    padding: 0 12px;
+}
+
+.report-icon {
+    font-size: 4rem;
+    padding: 0 56px
+}
+
+.report-search {
+    width: 92%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border: 2px solid var(--primary-Saimon-color);
+}
+
+.report-stt,
+.report-year {
+    width: 10%;
+    padding: 0 2%;
+}
+
+.report-birth,
+.report-married,
+.report-dead {
+    width: 26.667%;
+    padding: 0 3%;
+}
+
+.report-search__title {
+    text-align: center;
+    min-height: 44px;
+    line-height: 22px;
+    margin: 12px 0 0;
+}
+
+.report-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+}

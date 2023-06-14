@@ -1,0 +1,116 @@
+:root {
+    --primary-Buttery-White-color: #F0EAD8;
+    --primary-Saimon-color: #FF7F75;
+    --primary-Brink-Pink-color: #F76E7C;
+    --primary-Radical-Red-color: #F73668;
+    --primary-Prussian-Blue-color: #021E66;
+    --primary-Yellow-color: #ffce39;
+
+    --white-color: #fff;
+    --black-color: rgb(0, 0, 0);
+    --text-color: #333;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.no-admin {
+    display: none;
+}
+
+.admin {
+    display: block;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.col-3 {
+    width: 33.33%;
+}
+
+.btn {
+    min-width: 18%;
+    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1.6rem;
+    border-radius: 4px;
+}
+
+.Yellow-border {
+    border: 2px solid var(--primary-Yellow-color);
+}
+
+.Prussian-Blue-border {
+    border: 2px solid var(--primary-Prussian-Blue-color);
+}
+
+.Buttery-White-border {
+    border: 2px solid var(--primary-Buttery-White-color);
+}
+
+.Brink-Pink-border {
+    border: 2px solid var(--primary-Brink-Pink-color);
+}
+
+.Saimon-border {
+    border: 2px solid var(--primary-Saimon-color);
+}
+
+.Yellow-bg {
+    background-color: var(--primary-Yellow-color);
+}
+
+.Prussian-Blue-bg {
+    background-color: var(--primary-Prussian-Blue-color);
+    color: #fff;
+}
+
+.Buttery-White-bg {
+    background-color: var(--primary-Buttery-White-color);
+}
+
+.Brink-Pink-bg {
+    background-color: var(--primary-Brink-Pink-color);
+}
+
+.Saimon-bg {
+    background-color: var(--primary-Saimon-color);
+}
+
+.Yellow-hover:hover {
+    border-color: var(--primary-Yellow-color);
+}
+
+.Prussian-Blue-hover:hover {
+    border-color: var(--primary-Prussian-Blue-color);
+}
+
+.Buttery-White-hover:hover {
+    border-color: var(--primary-Buttery-White-color);
+}
+
+.Brink-Pink-hover:hover {
+    border-color: var(--primary-Brink-Pink-color);
+}
+
+.Saimon-hover:hover {
+    border-color: var(--primary-Saimon-color);
+}

@@ -1,0 +1,40 @@
+.header {
+    min-height: 600px;
+    display: flex;
+}
+
+.header-info {
+    padding: 176px 50px 0 100px;
+    width: 33.33%;
+    text-align: justify;
+}
+
+.header-title {
+    font-size: 3.2rem;
+    line-height: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-align: initial;
+}
+
+.header-script {
+    font-size: 1.6rem;
+    line-height: 20px;
+}
+
+.header-button {
+    margin-top: 32px;
+    font-size: 1.6rem;
+    background-color: var(--primary-Saimon-color);
+    padding: 14px;
+    width: 190px;
+    border-radius: 4px;
+    transition: transform ease-in 0.1s;
+    will-change: transform;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
+}
+
+.header-button:hover {
+    transform: translateY(-4px);
+}

@@ -1,0 +1,81 @@
+.boxup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    /* display: none; */
+}
+
+.boxup-container {
+    background-color: #fff;
+    width: 300px;
+    min-height: 100px;
+    position: relative;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    margin-top: 6%;
+    flex-direction: column;
+    position: relative;
+    border: 16px solid var(--primary-Buttery-White-color);
+}
+
+.boxup-icon {
+    top: 1%;
+    position: absolute;
+    right: 1%;
+    font-size: 52px;
+    cursor: pointer;
+}
+
+.boxup-title {
+    font-size: 4rem;
+    font-weight: 600;
+    padding: 32px 0;
+}
+
+.introduction-form.boxup-style {
+    width: 90%;
+    padding: 4px 12px;
+}
+
+.form-label.boxup-style {
+    font-size: 1.6rem;
+    padding: 10px 0; 
+}
+
+.form-control.boxup-style,
+.input-search.boxup-style {
+    height: 50px;
+    font-size: 1.6rem;
+}
+
+.col-3.boxup-style {
+    margin-left: 50px;
+}
+
+.boxup-button {  
+    background: var(--primary-Buttery-White-color);
+    font-size: 2rem;
+    padding: 20px 32px;
+    min-width: 130px;
+    border-radius: 10px;
+    margin-top: 18px;
+    text-align: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.select-option__type.boxup-style {
+    font-size: 1.6rem;
+    padding: 6px 0 8px 16px;
+}

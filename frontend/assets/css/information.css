@@ -1,0 +1,11 @@
+.infomation {
+    padding-top: 100px;
+    background-color: var(--primary-Buttery-White-color);
+    min-height: 600px;
+}
+
+.infomation-title {
+    text-align: center;
+    font-size: 3.2rem;
+    padding-bottom: 56px;
+}

@@ -1,0 +1,11 @@
+.footer {
+    background-color: var(--primary-Saimon-color);
+    min-height: 600px;
+    padding-top: 100px;
+}
+
+.footer-title {
+    text-align: center;
+    font-size: 3.2rem;
+    padding-bottom: 56px;
+}

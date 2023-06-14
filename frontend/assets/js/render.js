@@ -10,6 +10,14 @@ const optionIdMemberNoticeTheEnd = $('#oldMember.Prussian-Blue-hover')
 const optionIdMemberAddMember = $('#oldMember.Buttery-White-hover')
 const optionIdMemberSearch = $('#oldMember.Brink-Pink-hover')
 
+const optionJobBox = $('#job.boxup-style')
+const optionCountryBox = $('#country.boxup-style')
+const optionOldMemberBox = $('#oldMember.boxup-style')
+const optionRelateBox = $('#relationship.boxup-style')
+const optionReasonBox = $('#reasonDeath.boxup-style')
+const optionBurialBox = $('#burial.boxup-style')
+const optionAchivementBox = $('#achivement.boxup-style')
+
 const render = {
     // Tải thông tin id thành viên  
     get_IdMember: async () => {
@@ -29,6 +37,7 @@ const render = {
                 optionIdMemberNoticeTheEnd.innerHTML = htmls.join('\n')
                 optionIdMemberAddMember.innerHTML = htmls.join('\n')
                 optionIdMemberSearch.innerHTML = htmls.join('\n')
+                optionOldMemberBox.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {
@@ -51,6 +60,7 @@ const render = {
                 }))
 
                 optionAchivementType.innerHTML = htmls.join('\n')
+                optionAchivementBox.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {
@@ -73,6 +83,7 @@ const render = {
                 }))
 
                 optionDeathLocation.innerHTML = htmls.join('\n')
+                optionBurialBox.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {
@@ -96,6 +107,7 @@ const render = {
 
                 optionRelationAddMember.innerHTML = htmls.join('\n')
                 optionRelationSearch.innerHTML = htmls.join('\n')
+                optionRelateBox.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {
@@ -118,6 +130,7 @@ const render = {
                 }))
 
                 optionReasonDeath.innerHTML = htmls.join('\n')
+                optionReasonBox.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {
@@ -140,6 +153,7 @@ const render = {
                 }))
 
                 optionCountry.innerHTML = htmls.join('\n')
+                optionCountryBox.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {
@@ -162,6 +176,7 @@ const render = {
                 }))
 
                 optionJob.innerHTML = htmls.join('\n')
+                optionJobBox.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {

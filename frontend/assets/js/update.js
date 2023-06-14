@@ -20,10 +20,10 @@ updateButton.onclick = () => {
     let formattedDate = year + '-' + month + '-' + day;
 
 
-    let urlJob = 'http://localhost:8084/job?name=' + encodeURIComponent(job);
-    let urlCountry = 'http://localhost:8084/home_town?name=' + encodeURIComponent(country);
-    let urlRelation = 'http://localhost:8084/relation?name=' + encodeURIComponent(relation);
-    let urlYou = 'http://localhost:8084/member?name=' + encodeURIComponent(fullname);
+    let urlJob = 'http://192.168.20.156:5002/job?name=' + encodeURIComponent(job);
+    let urlCountry = 'http://192.168.20.156:5002/home_town?name=' + encodeURIComponent(country);
+    let urlRelation = 'http://192.168.20.156:5002/relation?name=' + encodeURIComponent(relation);
+    let urlYou = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(fullname);
 
     console.log(oldMember)
 
@@ -71,7 +71,7 @@ updateButton.onclick = () => {
     //             console.log(formData);
     //             console.log(fullname, sex, birthday, address, idRelation, idCountry, formattedDate);
 
-    //             fetch('http://localhost:8084/member', {
+    //             fetch('http://192.168.20.156:5002/member', {
     //                 method: 'PUT',
     //                 body: formData
     //             })
@@ -92,7 +92,7 @@ updateButton.onclick = () => {
     //     render.start();
     // }
     // else {
-    //     let urlMember = 'http://localhost:8084/member?name=' + encodeURIComponent(oldMember);
+    //     let urlMember = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(oldMember);
     //     Promise.all([
     //         fetch(urlJob).then(response => {
     //             if (!response.ok) {
@@ -143,7 +143,7 @@ updateButton.onclick = () => {
     //             console.log(formData);
     //             console.log(fullname, sex, birthday, address, idRelation, idCountry, idMember, formattedDate);
 
-    //             fetch('http://localhost:8084/member', {
+    //             fetch('http://192.168.20.156:5002/member', {
     //                 method: 'PUT',
     //                 body: formData
     //             })
@@ -169,9 +169,9 @@ updateButton.onclick = () => {
     // let burial = $('.boxup-burial').value
 
     // if (reasonDeath !== undefined && burial !== undefined) {
-    //     let urlReasonDeath = 'http://localhost:8084/reason?name=' + encodeURIComponent(reasonDeath);
-    //     let urlBurial = 'http://localhost:8084/dead_location?name=' + encodeURIComponent(burial);
-    //     let urlDeath = 'http://localhost:8084/end?name=' + encodeURIComponent(fullname);
+    //     let urlReasonDeath = 'http://192.168.20.156:5002/reason?name=' + encodeURIComponent(reasonDeath);
+    //     let urlBurial = 'http://192.168.20.156:5002/dead_location?name=' + encodeURIComponent(burial);
+    //     let urlDeath = 'http://192.168.20.156:5002/end?name=' + encodeURIComponent(fullname);
 
     //     console.log(fullname, deathday, reasonDeath, burial)
 
@@ -204,7 +204,7 @@ updateButton.onclick = () => {
     //             formData.append('id_reason', idReasonDeath);
     //             formData.append('id_dead_location', idBurial);
 
-    //             fetch('http://localhost:8084/end', {
+    //             fetch('http://192.168.20.156:5002/end', {
     //                 method: 'PUT',
     //                 body: formData
     //             })
@@ -226,8 +226,8 @@ updateButton.onclick = () => {
     let awardDay = $('.boxup-achivementDay').value
 
     if (achivementType !== undefined) {
-        let urlAchivementType = 'http://localhost:8084/achievement_type?name=' + encodeURIComponent(achivementType);
-        let urlAchiement = 'http://localhost:8084/achievement?name=' + encodeURIComponent(fullname);
+        let urlAchivementType = 'http://192.168.20.156:5002/achievement_type?name=' + encodeURIComponent(achivementType);
+        let urlAchiement = 'http://192.168.20.156:5002/achievement?name=' + encodeURIComponent(fullname);
         console.log(urlAchivementType)
 
         Promise.all([
@@ -251,7 +251,7 @@ updateButton.onclick = () => {
                 formData.append('date', awardDay);
                 formData.append('id_achievement_type', idAchivementType);
 
-                fetch('http://localhost:8084/achievement', {
+                fetch('http://192.168.20.156:5002/achievement', {
                     method: 'PUT',
                     body: formData
                 })

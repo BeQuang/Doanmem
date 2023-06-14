@@ -3,7 +3,7 @@ const deleteButton = $('.boxup-button.delete')
 deleteButton.onclick = () => {
     let fullnameValue = $('#fullname.form-control.Brink-Pink-hover').value
 
-    let urlMember = 'http://localhost:8084/member?name=' + encodeURIComponent(fullnameValue)
+    let urlMember = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(fullnameValue)
     fetch(urlMember)
         .then((response) => {
             if (response.ok) {
@@ -19,7 +19,7 @@ deleteButton.onclick = () => {
             let formData = new FormData();
             formData.append('id', idValue);
 
-            fetch('http://localhost:8084/member', {
+            fetch('http://192.168.20.156:5002/member', {
                 method: 'DELETE',
                 body: formData
             })
@@ -32,7 +32,7 @@ deleteButton.onclick = () => {
                     // Handle any errors that occur
                 });
 
-            fetch('http://localhost:8084/end', {
+            fetch('http://192.168.20.156:5002/end', {
                 method: 'DELETE',
                 body: formData
             })
@@ -45,7 +45,7 @@ deleteButton.onclick = () => {
                     // Handle any errors that occur
                 });
 
-            fetch('http://localhost:8084/achievement', {
+            fetch('http://192.168.20.156:5002/achievement', {
                 method: 'DELETE',
                 body: formData
             })

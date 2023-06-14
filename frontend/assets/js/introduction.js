@@ -33,6 +33,8 @@ const colorBgSaimon = '--primary-Saimon-color'
 const colorTextWhite = '--white-color'
 const colorTextBlack = '--black-color'
 
+let messValids = $$('.form-valid')
+
 buttonForm = function(
     button,
     colorBg,
@@ -40,7 +42,6 @@ buttonForm = function(
     board
 ) {
     button.onclick = () => {
-        console.log('helo')
         listitems.forEach((item) => {
             item.style.backgroundColor = `var(${colorBg})`
             item.style.color = `var(${colorText})` 
@@ -60,6 +61,10 @@ buttonForm = function(
         $('.introduction-container.active').classList.remove('active')
         
         board.classList.add('active')
+
+        messValids.forEach((message) => {
+            message.style.display = 'none'
+        })
     }
     
 }

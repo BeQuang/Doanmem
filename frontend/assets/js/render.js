@@ -2,29 +2,33 @@ const optionJob = $('#job')
 const optionAchivementType = $('#achivement')
 const optionCountry = $('#country')
 const optionReasonDeath = $('#reasonDeath')
-const optionRelation = $('#relationship')
+const optionRelationAddMember = $('#relationship.Buttery-White-hover')
+const optionRelationSearch = $('#relationship.Brink-Pink-hover')
 const optionDeathLocation = $('#burial')
-const optionIdMemberAddAchivement = $('#idMember.Yellow-hover')
-const optionIdMemberNoticeTheEnd = $('#idMember.Prussian-Blue-hover')
-const optionIdMemberAddMember = $('#idMember.Buttery-White-hover')
+const optionIdMemberAddAchivement = $('#oldMember.Yellow-hover')
+const optionIdMemberNoticeTheEnd = $('#oldMember.Prussian-Blue-hover')
+const optionIdMemberAddMember = $('#oldMember.Buttery-White-hover')
+const optionIdMemberSearch = $('#oldMember.Brink-Pink-hover')
 
 const render = {
     // Tải thông tin id thành viên  
     get_IdMember: async () => {
-        fetch('http://localhost:8084/all_members')
+        fetch('http://192.168.20.156:5002/all_members')
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
                 let members = data['members']
-                let htmls = members.map((member) => {
+                let htmls = ['<option value="-1">-- Option --</option>']
+                htmls.push(members.map((member) => {
                     return `
-                        <option value="${member.name}">${member.name}</option> 
+                        <option value="${member.id}">${member.name}</option> 
                     `
-                })
+                }))
 
                 optionIdMemberAddAchivement.innerHTML = htmls.join('\n')
                 optionIdMemberNoticeTheEnd.innerHTML = htmls.join('\n')
                 optionIdMemberAddMember.innerHTML = htmls.join('\n')
+                optionIdMemberSearch.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {
@@ -34,16 +38,17 @@ const render = {
 
     // Tải thông tin loại thành tích 
     get_achiementType: async () => {
-        fetch('http://localhost:8084/all_achievement_types')
+        fetch('http://192.168.20.156:5002/all_achievement_types')
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
                 let achiementTypes = data['achievement_types']
-                let htmls = achiementTypes.map((achiementType) => {
+                let htmls = ['<option value="-1">-- Option --</option>']
+                htmls.push(achiementTypes.map((achiementType) => {
                     return `
                         <option value="${achiementType.id}">${achiementType.name}</option> 
                     `
-                })
+                }))
 
                 optionAchivementType.innerHTML = htmls.join('\n')
                 
@@ -55,16 +60,17 @@ const render = {
 
     // Tải thông tin địa điểm chôn cất 
     get_deathLocation: async () => {
-        fetch('http://localhost:8084/all_dead_locations')
+        fetch('http://192.168.20.156:5002/all_dead_locations')
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
                 let deathLocations = data['dead_locations']
-                let htmls = deathLocations.map((deathLocation) => {
+                let htmls = ['<option value="-1">-- Option --</option>']
+                htmls.push(deathLocations.map((deathLocation) => {
                     return `
                         <option value="${deathLocation.id}">${deathLocation.name}</option> 
                     `
-                })
+                }))
 
                 optionDeathLocation.innerHTML = htmls.join('\n')
                 
@@ -76,18 +82,20 @@ const render = {
 
     // Tải thông tin tình trạng quan hệ 
     get_relationship: async () => {
-        fetch('http://localhost:8084/all_realtions')
+        fetch('http://192.168.20.156:5002/all_realtions')
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
                 let realtions = data['realtions']
-                let htmls = realtions.map((realtion) => {
+                let htmls = ['<option value="-1">-- Option --</option>']
+                htmls.push(realtions.map((realtion) => {
                     return `
                         <option value="${realtion.id}">${realtion.name}</option> 
                     `
-                })
+                }))
 
-                optionRelation.innerHTML = htmls.join('\n')
+                optionRelationAddMember.innerHTML = htmls.join('\n')
+                optionRelationSearch.innerHTML = htmls.join('\n')
                 
             })
             .catch(error => {
@@ -97,16 +105,17 @@ const render = {
 
     // Tải thông tin nguyên nhân chết
     get_reasonDeath: async () => {
-        fetch('http://localhost:8084/all_reasons')
+        fetch('http://192.168.20.156:5002/all_reasons')
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
                 let countries = data['reasons']
-                let htmls = countries.map((country) => {
+                let htmls = ['<option value="-1">-- Option --</option>']
+                htmls.push(countries.map((country) => {
                     return `
                         <option value="${country.id}">${country.name}</option> 
                     `
-                })
+                }))
 
                 optionReasonDeath.innerHTML = htmls.join('\n')
                 
@@ -118,16 +127,17 @@ const render = {
 
     // Tải thông tin Quê quán
     get_country: async () => {
-        fetch('http://localhost:8084/all_home_towns')
+        fetch('http://192.168.20.156:5002/all_home_towns')
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
                 let countries = data['home_towns']
-                let htmls = countries.map((country) => {
+                let htmls = ['<option value="-1">-- Option --</option>']
+                htmls.push(countries.map((country) => {
                     return `
                         <option value="${country.id}">${country.name}</option> 
                     `
-                })
+                }))
 
                 optionCountry.innerHTML = htmls.join('\n')
                 
@@ -139,16 +149,17 @@ const render = {
 
     // Tải thông tin nghề nghiệp
     get_job: async () => {
-        fetch('http://localhost:8084/all_jobs')
+        fetch('http://192.168.20.156:5002/all_jobs')
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
                 let jobs = data['jobs']
-                let htmls = jobs.map((job) => {
+                let htmls = ['<option value="-1">-- Option --</option>']
+                htmls.push(jobs.map((job) => {
                     return `
                         <option value="${job.id}">${job.name}</option> 
                     `
-                })
+                }))
 
                 optionJob.innerHTML = htmls.join('\n')
                 

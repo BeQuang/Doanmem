@@ -1,4 +1,4 @@
-fetch('http://localhost:8084/all_members')
+fetch('http://192.168.20.156:5002/all_members')
     .then(response => {
         if (!response.ok) {
             throw new Error('Đã xảy ra lỗi');

@@ -37,7 +37,7 @@ const bgBoxup = $('.boxup')
 //             id = targetBox.getAttribute('data-value');
 //             console.log(id)
 
-//             let urlMember = 'http://localhost:8084/member?id=' + encodeURIComponent(id)
+//             let urlMember = 'http://192.168.20.156:5002/member?id=' + encodeURIComponent(id)
 //             fetch(urlMember)
 //                 .then(response => {
 //                     if (response.ok) {
@@ -57,7 +57,7 @@ const bgBoxup = $('.boxup')
 
 //                     let relateWithValue = data['members'][0].id_old_member; // Giá trị thuộc tính "relateWith"
 //                     console.log(relateWithValue)
-//                     let urlAllMember = 'http://localhost:8084/all_members'
+//                     let urlAllMember = 'http://192.168.20.156:5002/all_members'
 //                     fetch(urlAllMember)
 //                         .then(response => {
 //                             if (response.ok) {
@@ -132,7 +132,7 @@ const bgBoxup = $('.boxup')
 //                 })
 //                 .then(data => data['members'][0].name)
 //                 .then(valueMember => {
-//                     let urlBurial = 'http://localhost:8084/end?name=' + encodeURIComponent(valueMember)
+//                     let urlBurial = 'http://192.168.20.156:5002/end?name=' + encodeURIComponent(valueMember)
 //                     fetch(urlBurial)
 //                         .then(response => {
 //                             if (response.ok) {
@@ -194,7 +194,7 @@ const bgBoxup = $('.boxup')
 //                 })
 //                 .then(data => data['members'][0].name)
 //                 .then(valueMember => {
-//                     let urlAchiement = 'http://localhost:8084/achievement?name=' + encodeURIComponent(valueMember)
+//                     let urlAchiement = 'http://192.168.20.156:5002/achievement?name=' + encodeURIComponent(valueMember)
 //                     fetch(urlAchiement)
 //                         .then(response => {
 //                             if (response.ok) {
@@ -250,7 +250,7 @@ const bgBoxup = $('.boxup')
 //     // $('.boxup-fullname').value = $('#fullname.form-control.Brink-Pink-hover').value
 //     // valueMember = $('.boxup-fullname').value
 
-//     // let urlMember = 'http://localhost:8084/member?name=' + encodeURIComponent(valueMember)
+//     // let urlMember = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(valueMember)
 //     // fetch(urlMember)
 //     //     .then(response => {
 //     //         if (response.ok) {
@@ -268,7 +268,7 @@ const bgBoxup = $('.boxup')
 
 //     //         let relateWithValue = data['members'][0].id_old_member; // Giá trị thuộc tính "relateWith"
 //     //         console.log(relateWithValue)
-//     //         let urlAllMember = 'http://localhost:8084/all_members'
+//     //         let urlAllMember = 'http://192.168.20.156:5002/all_members'
 //     //         fetch(urlAllMember)
 //     //             .then(response => {
 //     //                 if (response.ok) {
@@ -333,7 +333,7 @@ const bgBoxup = $('.boxup')
 //     //     .catch(error => {
 //     //         console.error(error);
 //     //     })
-//     // let urlBurial = 'http://localhost:8084/end?name=' + encodeURIComponent(valueMember)
+//     // let urlBurial = 'http://192.168.20.156:5002/end?name=' + encodeURIComponent(valueMember)
 //     // fetch(urlBurial)
 //     //     .then(response => {
 //     //         if (response.ok) {
@@ -382,7 +382,7 @@ const bgBoxup = $('.boxup')
 //     //         console.error(error);
 //     //     })
 
-//     // let urlAchiement = 'http://localhost:8084/achievement?name=' + encodeURIComponent(valueMember)
+//     // let urlAchiement = 'http://192.168.20.156:5002/achievement?name=' + encodeURIComponent(valueMember)
 //     // fetch(urlAchiement)
 //     //     .then(response => {
 //     //         if (response.ok) {

@@ -30,9 +30,8 @@ submitAddMember.addEventListener('click', function (event) {
     const address = addressInput.value;
     const job = jobInput.value;
 
-    console.log(fullname, oldMember, sex, relation, birthday, relationday, country, address, job)
-
-
+    
+    
     let formData = new FormData();
     formData.append('name', fullname);
     formData.append('sex', sex);
@@ -41,9 +40,13 @@ submitAddMember.addEventListener('click', function (event) {
     formData.append('id_relation', relation);
     formData.append('id_job', job);
     formData.append('id_home_town', country);
-    formData.append('id_old_member', oldMember);
+    console.log(oldMember)
+    if (oldMember != -1) {
+        formData.append('id_old_member', oldMember);
+    }
     formData.append('create_at', relationday);
-
+    
+    console.log(fullname, oldMember, sex, relation, birthday, relationday, country, address, job)
 
     fetch('http://192.168.20.156:5002/member', {
         method: 'POST',

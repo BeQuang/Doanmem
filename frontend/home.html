@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tìm kiếm dữ liệu</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Nhập từ khóa">
+    <div id="result"></div>
+
+    <script>
+        // Tạo một đối tượng chứa các dữ liệu
+        var data = {
+            'Quả cam': 'Cam là một loại trái cây có màu da cam và vị ngọt.',
+            'Quả táo': 'Táo là một loại trái cây có màu đỏ hoặc xanh và có vị chua ngọt.',
+            'Quả lê': 'Lê là một loại trái cây có hình dáng như chai và có vị ngọt.',
+            // Thêm các dữ liệu khác tại đây
+        };
+
+        // Lắng nghe sự kiện nhập liệu
+        var inputElement = document.getElementById('input');
+        inputElement.addEventListener('input', function () {
+            var inputText = inputElement.value;
+            var resultElement = document.getElementById('result');
+
+            // Kiểm tra xem liệu dữ liệu có tồn tại trong đối tượng data hay không
+            if (data.hasOwnProperty(inputText)) {
+                resultElement.textContent = data[inputText];
+            } else {
+                resultElement.textContent = 'Không tìm thấy dữ liệu phù hợp.';
+            }
+        });
+
+    </script>
+</body>
+
+</html>

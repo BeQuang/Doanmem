@@ -151,7 +151,6 @@ submitSearch.addEventListener('click', function (e) {
                     boxup.style.display = 'flex'
                     boxupContainer.classList.add('animate__bounceInDown')
                     // console.log(dataValue)
-
                     let urlMemberBoxup = 'http://192.168.20.156:5002/member?id=' + encodeURIComponent(dataValue)
                     let urlEndBoxup = 'http://192.168.20.156:5002/end?id_member=' + encodeURIComponent(dataValue)
                     let urlAchivementBoxup = 'http://192.168.20.156:5002/achievement?id_member=' + encodeURIComponent(dataValue)
@@ -193,6 +192,7 @@ submitSearch.addEventListener('click', function (e) {
                     fetch(urlEndBoxup)
                         .then(response => response.json())
                         .then(data => {
+                            idEnd = data['end'][0].id
                             if (data.end.length === 0) {
                                 deathDayBoxup.value = undefined
                                 reasonDeathBoxup.value = -1
@@ -205,7 +205,6 @@ submitSearch.addEventListener('click', function (e) {
                                 deathDayBoxup.value = dateStringDeath
                                 reasonDeathBoxup.value = data['end'][0].id_reason
                                 burialBoxup.value = data['end'][0].id_dead_location
-                                idEnd = data['end'][0].id
                             }
                         })
                         .catch(error => {
@@ -215,7 +214,7 @@ submitSearch.addEventListener('click', function (e) {
                     fetch(urlAchivementBoxup)
                         .then(response => response.json())
                         .then(data => {
-                            console.log(data.achievements.length);
+                            idAchievement = data['achievements'][0].id
                             if (data.achievements.length === 0) {
                                 achivementBoxup.value = -1
                                 achivementDayBoxup.value = undefined
@@ -227,20 +226,30 @@ submitSearch.addEventListener('click', function (e) {
 
                                 achivementBoxup.value = data['achievements'][0].id_achievement_type
                                 achivementDayBoxup.value = dateStringAchivement
-                                idAchievement = data['achievements'][0].id
                             }
                         })
                         .catch(error => {
                             // Xử lý các lỗi xảy ra
                         });
 
+                    deleteButton.onclick = async () => {
+                        console.log(idAchievement, idEnd)
+                        try {
+                            await deleteForm(idEnd, 'http://192.168.20.156:5002/end');
+                            await deleteForm(idAchievement, 'http://192.168.20.156:5002/achievement');
+                            await deleteForm(dataValue, 'http://192.168.20.156:5002/member');
+
+                            console.log('Các tác vụ xóa đã hoàn thành');
+                        } catch (error) {
+                            console.log('Lỗi xảy ra', error);
+                        }
+                    };
+
                     // Delete 
-                    deleteForm(deleteButton, idEnd, 'http://192.168.20.156:5002/end')
-                    deleteForm(deleteButton, idAchievement, 'http://192.168.20.156:5002/achievement')
-                    deleteForm(deleteButton, dataValue, 'http://192.168.20.156:5002/member')
 
                     // Update 
                     updateButton.onclick = () => {
+                        console.log(idAchievement, idEnd)
                         let fullname = $('#fullname.boxup-style').value
                         let sex = $('#sex.boxup-style').value
                         let job = $('#job.boxup-style').value
@@ -250,6 +259,7 @@ submitSearch.addEventListener('click', function (e) {
                         let oldMember = $('#oldMember.boxup-style').value
                         let relateDay = $('#relationDay.boxup-style').value
                         let relation = $('#relationship.boxup-style').value
+                        let id = dataValue
 
                         // Tạo một đối tượng Date mới
                         let currentDate = new Date();
@@ -260,8 +270,91 @@ submitSearch.addEventListener('click', function (e) {
                         // Định dạng ngày tháng năm theo định dạng "yyyy-mm-dd"
                         let formattedDate = year + '-' + month + '-' + day;
 
-                        console.log(fullname, sex, job, birthday, country, address, oldMember, relateDay, relation)
+                        console.log(id, fullname, sex, job, birthday, country, address, oldMember, relateDay, relation)
 
+                        let formUpdateMember = new FormData();
+                        formUpdateMember.append('id', id);
+                        formUpdateMember.append('name', fullname);
+                        formUpdateMember.append('sex', sex);
+                        formUpdateMember.append('birthday', birthday);
+                        formUpdateMember.append('address', address);
+                        formUpdateMember.append('id_relation', relation);
+                        formUpdateMember.append('id_job', job);
+                        formUpdateMember.append('id_home_town', country);
+                        console.log(oldMember)
+                        if (oldMember != -1) {
+                            formUpdateMember.append('id_old_member', oldMember);
+                        }
+                        formUpdateMember.append('create_at', relateDay);
+
+                        fetch('http://192.168.20.156:5002/member', {
+                            method: 'PUT',
+                            body: formUpdateMember
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data)
+
+                            })
+                            .catch(error => {
+
+                                // Handle any errors that occur
+                            });
+
+
+                        let deathday = document.querySelector('#deathDay.boxup-style').value;
+                        let reasonDeath = document.querySelector('#reasonDeath.boxup-style').value;
+                        let burial = document.querySelector('#burial.boxup-style').value;
+
+                        let formUpdateEnd = new FormData();
+                        formUpdateEnd.append('id', idEnd);
+                        formUpdateEnd.append('name', fullname);
+                        formUpdateEnd.append('dead_date', deathday);
+                        formUpdateEnd.append('id_reason', reasonDeath);
+                        formUpdateEnd.append('id_dead_location', burial);
+                        formUpdateEnd.append('id_member', id);
+
+                        console.log(idEnd, fullname, deathday, reasonDeath, burial, id);
+
+                        fetch('http://192.168.20.156:5002/end', {
+                            method: 'PUT',
+                            body: formUpdateEnd
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data)
+
+                            })
+                            .catch(error => {
+
+                                // Handle any errors that occur
+                            });
+
+
+
+                        let achivementType = document.querySelector('#achivement.boxup-style').value;
+                        let awardDay = document.querySelector('#achivementDay.boxup-style').value;
+
+                        let formUpdateAchievement = new FormData();
+                        formUpdateAchievement.append('id', idAchievement);
+                        formUpdateAchievement.append('name', fullname);
+                        formUpdateAchievement.append('date', awardDay);
+                        formUpdateAchievement.append('id_achievement_type', achivementType);
+                        formUpdateAchievement.append('id_member', id);
+
+                        fetch('http://192.168.20.156:5002/achievement', {
+                            method: 'PUT',
+                            body: formUpdateAchievement
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data)
+
+                            })
+                            .catch(error => {
+
+                                // Handle any errors that occur
+                            });
                     }
                 }
             });

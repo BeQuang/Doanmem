@@ -339,7 +339,7 @@
                             <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
                         </div>
                         <div class="form-valid__mess">
-                            Has a data field that hasn't been imported
+                            Your input is incorrect
                         </div>
                     </div>
                     <div class="btn form-btn Saimon-bg">Submit</div>
@@ -477,7 +477,7 @@
     </div>
 
     <div class="report">
-        <div class="report-container">
+        <div class="report-container animate__animated">
             <div class="report-close">
                 <i class="fa-solid fa-xmark"></i>
             </div>
@@ -487,14 +487,14 @@
                 <div class="report-info">
                     <div class="report-box">
                         <p class="report-text">Từ năm</p>
-                        <p class="report-text">2003</p>
+                        <p class="report-updown__from">2003</p>
                     </div>
                     <div class="report-icon">
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                     <div class="report-box">
                         <p class="report-text">Đến năm</p>
-                        <p class="report-text">2013</p>
+                        <p class="report-updown__to">2013</p>
                     </div>
                 </div>
 
@@ -507,7 +507,7 @@
                         <div class="report-dead">Death</div>
                     </div>
 
-                    <div class="report-menu">
+                    <div class="report-menu updown">
                         <div class="report-list">
                             <div class="report-stt">STT</div>
                             <div class="report-year">Year</div>
@@ -527,18 +527,18 @@
             </div>
 
             <div class="report-achivement">
-                <h1 class="report-title">Báo cáo tăng giảm</h1>
+                <h1 class="report-title">Báo cáo thành tích</h1>
                 <div class="report-info">
                     <div class="report-box">
                         <p class="report-text">Từ năm</p>
-                        <p class="report-text">2003</p>
+                        <p class="report-achivement__from"></p>
                     </div>
                     <div class="report-icon">
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                     <div class="report-box">
                         <p class="report-text">Đến năm</p>
-                        <p class="report-text">2013</p>
+                        <p class="report-achivement__to"></p>
                     </div>
                 </div>
 
@@ -549,18 +549,7 @@
                         <div class="report-count">Số lượng</div>
                     </div>
 
-                    <div class="report-menu">
-                        <div class="report-list">
-                            <div class="report-stt">STT</div>
-                            <div class="report-type">Year</div>
-                            <div class="report-count">Birth</div>
-                        </div>
-                        <div class="report-list">
-                            <div class="report-stt">STT</div>
-                            <div class="report-type">Year</div>
-                            <div class="report-count">Birth</div>
-                        </div>
-                    </div>
+                    <div class="report-menu achivement"></div>
                 </div>
             </div>
         </div>
@@ -607,6 +596,7 @@
     <script src="./assets/js/checkinLogin.js"></script>
     <script src="./assets/js/toast.js"></script>
     <script src="./assets/js/showOption.js"></script>
+    <script src="./assets/js/submitReport.js"></script>
 </body>
 
 </html>

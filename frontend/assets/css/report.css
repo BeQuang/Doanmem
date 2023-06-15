@@ -68,7 +68,11 @@
     font-weight: 600;
 }
 
-.report-text {
+.report-text,
+.report-updown__from,
+.report-updown__to,
+.report-achivement__from,
+.report-achivement__to {
     padding: 0 12px;
 }
 
@@ -128,4 +132,9 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.report-menu {
+    max-height: 228px;
+    overflow-y: scroll;
 }

@@ -4,6 +4,9 @@ let memberCodeSearch = document.querySelector('#fullname.Brink-Pink-hover')
 let idMemberCodeSearch
 let memberCodeSearchoption = $('#oldMember.Brink-Pink-hover')
 
+const deleteButton = $('.boxup-button.delete')
+const updateButton = $('.boxup-button.update')
+
 memberCodeSearch.onblur = () => {
     idMemberCodeSearch = memberCodeSearch.value
     console.log(idMemberCodeSearch)
@@ -89,6 +92,19 @@ submitSearch.addEventListener('click', function (e) {
 
     console.log(url);
 
+    if (fullnameInput.trim() === '' && birthdayInput.trim() === '' && memberCodeInput.trim() === '-1' && generationInput.trim() === '') {
+        fetch('http://localhost:8084/all_members')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                // Handle any errors that occur
+            });
+    } else {
+
+    }
+
 
     fetch(url)
         .then(response => response.json())
@@ -134,13 +150,15 @@ submitSearch.addEventListener('click', function (e) {
                 formItem.onclick = () => {
                     boxup.style.display = 'flex'
                     boxupContainer.classList.add('animate__bounceInDown')
-
-                    let valueElement = formItem.querySelector('.form-name.idName');
-                    let valueMember = valueElement.textContent;
+                    // console.log(dataValue)
 
                     let urlMemberBoxup = 'http://192.168.20.156:5002/member?id=' + encodeURIComponent(dataValue)
-                    let urlEndBoxup = 'http://192.168.20.156:5002/end?name=' + encodeURIComponent(valueMember)
-                    let urlAchivementBoxup = 'http://192.168.20.156:5002/achievement?name=' + encodeURIComponent(valueMember)
+                    let urlEndBoxup = 'http://192.168.20.156:5002/end?id_member=' + encodeURIComponent(dataValue)
+                    let urlAchivementBoxup = 'http://192.168.20.156:5002/achievement?id_member=' + encodeURIComponent(dataValue)
+
+                    let idEnd
+                    let idAchievement
+
                     fetch(urlMemberBoxup)
                         .then(response => response.json())
                         .then(data => {
@@ -152,17 +170,21 @@ submitSearch.addEventListener('click', function (e) {
                             let dateArrayEnd = dateTimeStringEnd.split("T");
                             let dateStringEnd = dateArrayEnd[0];
 
-                            console.log(data['members'][0].birthday);
+                            // console.log(data['members'][0].birthday);
                             fullNameBoxup.value = data['members'][0].name
                             SexBoxup.value = data['members'][0].sex
                             jobBoxup.value = data['members'][0].id_job
                             birthDayBoxup.value = dateString
                             countryBoxup.value = data['members'][0].id_home_town
                             addressBoxup.value = data['members'][0].address
-                            oldMemberBoxup.value = data['members'][0].id_old_member
                             relationDayBoxup.value = dateStringEnd
                             relationshipBoxup.value = data['members'][0].id_relation
                             generationBoxup.value = data['members'][0].generation
+                            if (data['members'][0].id_old_member === None) {
+                                oldMemberBoxup.value = -1
+                            } else {
+                                oldMemberBoxup.value = data['members'][0].id_old_member
+                            }
                         })
                         .catch(error => {
                             // Xử lý các lỗi xảy ra
@@ -171,14 +193,20 @@ submitSearch.addEventListener('click', function (e) {
                     fetch(urlEndBoxup)
                         .then(response => response.json())
                         .then(data => {
-                            let dateTimeStringDeath = data['end'][0].dead_date;
-                            let dateArrayDeath = dateTimeStringDeath.split("T");
-                            let dateStringDeath = dateArrayDeath[0];
+                            if (data.end.length === 0) {
+                                deathDayBoxup.value = undefined
+                                reasonDeathBoxup.value = -1
+                                burialBoxup.value = -1
+                            } else {
+                                let dateTimeStringDeath = data['end'][0].dead_date;
+                                let dateArrayDeath = dateTimeStringDeath.split("T");
+                                let dateStringDeath = dateArrayDeath[0];
 
-                            console.log(data);
-                            deathDayBoxup.value = dateStringDeath
-                            reasonDeathBoxup.value = data['end'][0].id_reason
-                            burialBoxup.value = data['end'][0].id_dead_location
+                                deathDayBoxup.value = dateStringDeath
+                                reasonDeathBoxup.value = data['end'][0].id_reason
+                                burialBoxup.value = data['end'][0].id_dead_location
+                                idEnd = data['end'][0].id
+                            }
                         })
                         .catch(error => {
                             // Xử lý các lỗi xảy ra
@@ -187,18 +215,54 @@ submitSearch.addEventListener('click', function (e) {
                     fetch(urlAchivementBoxup)
                         .then(response => response.json())
                         .then(data => {
-                            let dateTimeStringAchivement = data['achievements'][0].id_achievement_type;
-                            let dateArrayAchivement = dateTimeStringAchivement.split("T");
-                            let dateStringAchivement = dateArrayAchivement[0];
+                            console.log(data.achievements.length);
+                            if (data.achievements.length === 0) {
+                                achivementBoxup.value = -1
+                                achivementDayBoxup.value = undefined
+                            } else {
 
+                                let dateTimeStringAchivement = data['achievements'][0].date;
+                                let dateArrayAchivement = dateTimeStringAchivement.split("T");
+                                let dateStringAchivement = dateArrayAchivement[0];
 
-                            console.log(data);
-                            achivementBoxup.value = dateStringAchivement
-                            achivementDayBoxup.value = data['achievements'][0].date
+                                achivementBoxup.value = data['achievements'][0].id_achievement_type
+                                achivementDayBoxup.value = dateStringAchivement
+                                idAchievement = data['achievements'][0].id
+                            }
                         })
                         .catch(error => {
                             // Xử lý các lỗi xảy ra
                         });
+
+                    // Delete 
+                    deleteForm(deleteButton, idEnd, 'http://192.168.20.156:5002/end')
+                    deleteForm(deleteButton, idAchievement, 'http://192.168.20.156:5002/achievement')
+                    deleteForm(deleteButton, dataValue, 'http://192.168.20.156:5002/member')
+
+                    // Update 
+                    updateButton.onclick = () => {
+                        let fullname = $('#fullname.boxup-style').value
+                        let sex = $('#sex.boxup-style').value
+                        let job = $('#job.boxup-style').value
+                        let birthday = $('#birthDay.boxup-style').value
+                        let country = $('#country.boxup-style').value
+                        let address = $('#address.boxup-style').value
+                        let oldMember = $('#oldMember.boxup-style').value
+                        let relateDay = $('#relationDay.boxup-style').value
+                        let relation = $('#relationship.boxup-style').value
+
+                        // Tạo một đối tượng Date mới
+                        let currentDate = new Date();
+                        // Lấy ngày, tháng và năm hiện tại
+                        let day = String(currentDate.getDate()).padStart(2, '0');
+                        let month = String(currentDate.getMonth() + 1).padStart(2, '0');
+                        let year = currentDate.getFullYear();
+                        // Định dạng ngày tháng năm theo định dạng "yyyy-mm-dd"
+                        let formattedDate = year + '-' + month + '-' + day;
+
+                        console.log(fullname, sex, job, birthday, country, address, oldMember, relateDay, relation)
+
+                    }
                 }
             });
 

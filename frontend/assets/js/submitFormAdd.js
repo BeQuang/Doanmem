@@ -41,9 +41,7 @@ submitAddMember.addEventListener('click', function (event) {
     formData.append('id_relation', relation);
     formData.append('id_job', job);
     formData.append('id_home_town', country);
-    if (oldMember === -1) {
-        formData.append('id_old_member', oldMember);
-    }
+    formData.append('id_old_member', oldMember);
     formData.append('create_at', relationday);
 
 

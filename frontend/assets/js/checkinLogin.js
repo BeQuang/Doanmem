@@ -13,19 +13,32 @@ document.querySelector('.login-button').addEventListener('click', function (even
     // Kiểm tra thông tin đăng nhập
     if (username === 'admin' && password === 'admin') {
         login.innerHTML='admin';
+        window.location.reload();
 
-    }
-
-    // Thiết lập cookie khi đăng nhập thành công (tuỳ chọn)
-    if (username === 'admin' && password === 'admin') {
+        // Thiết lập cookie khi đăng nhập thành công (tuỳ chọn)
         const expirationDate = new Date();
         expirationDate.setDate(expirationDate.getDate() + 30);
         document.cookie = 'loggedIn=' + true + '; expires=' + expirationDate.toUTCString() + '; path=/';
-    }
 
-    document.querySelector(".login").style.display = "none";
-    document.querySelector(".login-button").style.display = "none";
-    document.querySelector(".logout-button").style.display = "block";
+        document.querySelector(".login").style.display = "none";
+        document.querySelector(".login-button").style.display = "none";
+        document.querySelector(".logout-button").style.display = "block";
+    } else {
+        if(username !== 'admin') {
+            if(username === '') document.querySelector('#username-error').innerHTML = 'Username is required!';
+            document.querySelector('#username-error').style.display = 'block';
+            document.querySelector('#username').style.borderColor = "#FF7F75";
+            document.querySelector('#username').style.backgroundColor = '#FFF2F2';
+        };
+
+        if(password !== 'admin') {
+            if(password === '') document.querySelector('#password-error').innerHTML = 'Password is required!';
+            document.querySelector('#password-error').style.display = 'block';
+            document.querySelector('#password').style.borderColor = "#FF7F75";
+            document.querySelector('#password').style.backgroundColor = '#FFF2F2';
+        };
+    };
+
 });
 
 document.querySelector(".logout-button").addEventListener('click', (event) => {

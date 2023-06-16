@@ -142,3 +142,13 @@
 .btn {
     cursor: pointer;
 }
+
+.login-error {
+    display: none;
+    color: var(--primary-Brink-Pink-color);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 150%;
+    margin-top: 5px
+}

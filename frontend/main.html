@@ -34,7 +34,13 @@
             <div class="navbar-item">Feature</div>
             <div class="navbar-item">Event</div>
             <div class="navbar-item">Information</div>
-            <div class="navbar-item nav-login">Login</div>
+            <div class="navbar-item nav-login tooltip">
+                <div class="nav-login-title">Login</div>
+                <div class="tooltiptext">
+                    <div class="tooltip=item tooltip-settings">Settings</div>
+                    <div class="tooltip-item tooltip-logout">Logout</div>
+                </div>  
+            </div>
         </div>
     </div>
 
@@ -658,13 +664,14 @@
                     <div class="login-form">
                         <label for="uname" class="login-label">Username</label>
                         <input id="username" class="login-input" type="text" placeholder="Enter Username" name="uname" required>
+                        <small class="login-error" id="username-error">The user does not exist!</small>
                         <label for="psw" class="login-label" style="margin-top: 24px;">Password</label>
                         <input id="password" class="login-input" type="password" placeholder="Enter Password" name="psw" required>
+                        <small class="login-error" id="password-error">Password is not correct!</small>
                         <div class="login-forgot">
                             <div class="login-link">Forgot password?</div>
                         </div>
                         <button class="login-button">Login</button>
-                        <button class="logout-button">Logout</button>
                     </div>
                 </div>
             </div>

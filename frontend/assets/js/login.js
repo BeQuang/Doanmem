@@ -17,8 +17,8 @@ login.onclick = () => {
     if(!getCookie("loggedIn")) {
         document.querySelector('#username').value = "";
         document.querySelector('#password').value = "";
+        loginTrigger();
     }
-    loginTrigger();
 }
 
 loginButton.forEach(button => {
@@ -60,11 +60,8 @@ function getCookie(cname) {
 
 window.addEventListener("load", () => {
     if(getCookie("loggedIn")) {
-        document.querySelector('.nav-login').innerHTML = "admin";
-        document.querySelector('#username').value = "admin";
-        document.querySelector('#password').value = "admin";
-        document.querySelector(".login").style.display = "none";
-        document.querySelector(".login-button").style.display = "none";
-        document.querySelector(".logout-button").style.display = "block";
+        document.querySelector('.nav-login-title').innerHTML = "admin";
+    } else {
+        document.querySelector('.tooltiptext').style.display = 'none';
     }
 });

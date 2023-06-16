@@ -6,6 +6,36 @@ const formValidAchivement = $('.form-valid.Yellow')
 const formValidEnd = $('.form-valid.Prussian-Blue')
 const formValidAddMember = $('.form-valid.Buttery-White')
 
+let oldMemberCode = document.querySelector('#fullold.Buttery-White-hover')
+let idOldMemberCode
+let oldMemberCodeOption = $('#oldMember.Buttery-White-hover')
+
+oldMemberCode.onblur = () => {
+    idOldMemberCode = oldMemberCode.value
+    console.log(idOldMemberCode)
+    url = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(idOldMemberCode)
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            let members = data['members']
+            let htmls = ['<option value="-1">-- Option --</option>']
+            htmls.push(members.map((member) => {
+                return `
+                        <option value="${member.id}">${member.id}</option> 
+                    `
+            }))
+
+            oldMemberCodeOption.innerHTML = htmls.join('\n')
+        })
+        .catch(error => {
+
+            // Handle any errors that occur
+        });
+
+
+}
+
 submitAddMember.addEventListener('click', function (event) {
     event.preventDefault(); // Ngăn chặn hành vi mặc định của nút submit
 

@@ -29,7 +29,7 @@ const render = {
 
                 optionIdMemberAddAchivement.innerHTML = htmls.join('\n')
                 optionIdMemberNoticeTheEnd.innerHTML = htmls.join('\n')
-                optionIdMemberSearch.innerHTML = htmls.join('\n')
+                optionIdMemberAddMember.innerHTML = htmls.join('\n')
 
             })
             .catch(error => {
@@ -47,7 +47,7 @@ const render = {
                     `
                 }))
 
-                optionIdMemberAddMember.innerHTML = htmls.join('\n')
+                optionIdMemberSearch.innerHTML = htmls.join('\n')
                 optionOldMemberBox.innerHTML = htmls.join('\n')
 
             })

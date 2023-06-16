@@ -7,31 +7,31 @@ let memberCodeSearchoption = $('#oldMember.Brink-Pink-hover')
 const deleteButton = $('.boxup-button.delete')
 const updateButton = $('.boxup-button.update')
 
-memberCodeSearch.onblur = () => {
-    idMemberCodeSearch = memberCodeSearch.value
-    console.log(idMemberCodeSearch)
-    url = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(idMemberCodeSearch)
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            let members = data['members']
-            let htmls = ['<option value="-1">-- Option --</option>']
-            htmls.push(members.map((member) => {
-                return `
-                        <option value="${member.id}">${member.id}</option> 
-                    `
-            }))
+// memberCodeSearch.onblur = () => {
+//     idMemberCodeSearch = memberCodeSearch.value
+//     console.log(idMemberCodeSearch)
+//     url = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(idMemberCodeSearch)
+//     fetch(url)
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data)
+//             let members = data['members']
+//             let htmls = ['<option value="-1">-- Option --</option>']
+//             htmls.push(members.map((member) => {
+//                 return `
+//                         <option value="${member.id}">${member.id}</option> 
+//                     `
+//             }))
 
-            memberCodeSearchoption.innerHTML = htmls.join('\n')
-        })
-        .catch(error => {
+//             memberCodeSearchoption.innerHTML = htmls.join('\n')
+//         })
+//         .catch(error => {
 
-            // Handle any errors that occur
-        });
+//             // Handle any errors that occur
+//         });
 
 
-}
+// }
 
 submitSearch.addEventListener('click', function (e) {
     e.preventDefault(); // Ngăn chặn hành vi mặc định của nút submit
@@ -77,7 +77,7 @@ submitSearch.addEventListener('click', function (e) {
 
     if (memberCodeInput.trim() !== '-1') {
         const encodedIdMember = encodeURIComponent(memberCodeInput);
-        url += `id=${encodedIdMember}&`;
+        url += `id_old_member=${encodedIdMember}&`;
     }
 
     if (generationInput.trim() !== '') {

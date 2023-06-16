@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./assets/css/boxup.css">
     <link rel="stylesheet" href="./assets/css/report.css">
     <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/toast.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap"
         rel="stylesheet">
@@ -81,7 +82,7 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label for="oldMember" class="form-label">Old member</label>
+                                <label for="oldMember" class="form-label">Member Code</label>
                                 <select id="oldMember" name="oldMember" class="form-control Yellow-hover"></select>
                             </div>
                             <div class="form-group">
@@ -121,7 +122,7 @@
                                     class="form-control Prussian-Blue-hover">
                             </div>
                             <div class="form-group">
-                                <label for="oldMember" class="form-label">Old member</label>
+                                <label for="oldMember" class="form-label">Member Code</label>
                                 <select id="oldMember" name="oldMember"
                                     class="form-control Prussian-Blue-hover"></select>
                             </div>
@@ -177,6 +178,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="oldMember" class="form-label">Old member</label>
+                                <input id="inputoldMember" name="inputoldMember" type="text" placeholder="Full name"
+                                    class="form-control Buttery-White-hover input-option">
                                 <select id="oldMember" name="oldMember"
                                     class="form-control Buttery-White-hover"></select>
                             </div>
@@ -265,12 +268,13 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label for="oldMember" class="form-label">Old member</label>
+                                <label for="oldMember" class="form-label">Member Code</label>
                                 <select id="oldMember" name="oldMember" class="form-control Brink-Pink-hover"></select>
                             </div>
                             <div class="form-group">
                                 <label for="generation" class="form-label">Generation</label>
-                                <input id="generation" name="generation" type="text" placeholder="Generation" class="form-control Brink-Pink-hover">
+                                <input id="generation" name="generation" type="text" placeholder="Generation"
+                                    class="form-control Brink-Pink-hover">
                             </div>
                         </div>
                     </div>
@@ -335,7 +339,7 @@
                             <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
                         </div>
                         <div class="form-valid__mess">
-                            Has a data field that hasn't been imported
+                            Your input is incorrect
                         </div>
                     </div>
                     <div class="btn form-btn Saimon-bg">Submit</div>
@@ -400,11 +404,13 @@
                 <div class="row">
                     <div class="boxup-form form-group">
                         <label for="birthDay" class="form-label">Birthday</label>
-                        <input id="birthDay" name="birthDay" type="date" class="form-control Buttery-White-hover boxup-style">
+                        <input id="birthDay" name="birthDay" type="date"
+                            class="form-control Buttery-White-hover boxup-style">
                     </div>
                     <div class="boxup-form form-group">
                         <label for="country" class="form-label">Country</label>
-                        <select id="country" name="country" class="form-control Buttery-White-hover boxup-style"></select>
+                        <select id="country" name="country"
+                            class="form-control Buttery-White-hover boxup-style"></select>
                     </div>
                     <div class="boxup-form form-group">
                         <label for="address" class="form-label">Address</label>
@@ -415,25 +421,30 @@
                 <div class="row">
                     <div class="boxup-form form-group">
                         <label for="oldMember" class="form-label">Old member</label>
-                        <select id="oldMember" name="oldMember" class="form-control Brink-Pink-hover boxup-style"></select>
+                        <select id="oldMember" name="oldMember"
+                            class="form-control Brink-Pink-hover boxup-style"></select>
                     </div>
                     <div class="boxup-form form-group">
                         <label for="relationDay" class="form-label">Date of Relationship</label>
-                        <input id="relationDay" name="relationDay" type="date" class="form-control Buttery-White-hover boxup-style">
+                        <input id="relationDay" name="relationDay" type="date"
+                            class="form-control Buttery-White-hover boxup-style">
                     </div>
                     <div class="boxup-form form-group">
                         <label for="relationship" class="form-label">Relationship</label>
-                        <select id="relationship" name="relationship" class="form-control Brink-Pink-hover boxup-style"></select>
+                        <select id="relationship" name="relationship"
+                            class="form-control Brink-Pink-hover boxup-style"></select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="boxup-form form-group">
                         <label for="deathDay" class="form-label">Death Date</label>
-                        <input id="deathDay" name="deathDay" type="date" class="form-control Prussian-Blue-hover boxup-style">
+                        <input id="deathDay" name="deathDay" type="date"
+                            class="form-control Prussian-Blue-hover boxup-style">
                     </div>
                     <div class="boxup-form form-group">
                         <label for="reasonDeath" class="form-label">Reason of the Death</label>
-                        <select id="reasonDeath" name="reasonDeath" class="form-control Prussian-Blue-hover boxup-style"></select>
+                        <select id="reasonDeath" name="reasonDeath"
+                            class="form-control Prussian-Blue-hover boxup-style"></select>
                     </div>
                     <div class="boxup-form form-group">
                         <label for="burial" class="form-label">Burial site</label>
@@ -443,7 +454,8 @@
                 <div class="row">
                     <div class="boxup-form form-group">
                         <label for="achivement" class="form-label">Type of Achivement</label>
-                        <select id="achivement" name="achivement" class="form-control Yellow-hover boxup-style"></select>
+                        <select id="achivement" name="achivement"
+                            class="form-control Yellow-hover boxup-style"></select>
                     </div>
                     <div class="boxup-form form-group">
                         <label for="achivementDay" class="form-label">Award Date</label>
@@ -452,7 +464,8 @@
                     </div>
                     <div class="boxup-form form-group">
                         <label for="generation" class="form-label">Generation</label>
-                        <input id="generation" name="generation" type="text" class="form-control Prussian-Blue-hover boxup-style" readonly>
+                        <input id="generation" name="generation" type="text"
+                            class="form-control Prussian-Blue-hover boxup-style" readonly>
                     </div>
                 </div>
                 <div class="row">
@@ -464,7 +477,7 @@
     </div>
 
     <div class="report">
-        <div class="report-container">
+        <div class="report-container animate__animated">
             <div class="report-close">
                 <i class="fa-solid fa-xmark"></i>
             </div>
@@ -474,14 +487,14 @@
                 <div class="report-info">
                     <div class="report-box">
                         <p class="report-text">Từ năm</p>
-                        <p class="report-text">2003</p>
+                        <p class="report-updown__from">2003</p>
                     </div>
                     <div class="report-icon">
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                     <div class="report-box">
                         <p class="report-text">Đến năm</p>
-                        <p class="report-text">2013</p>
+                        <p class="report-updown__to">2013</p>
                     </div>
                 </div>
 
@@ -494,7 +507,7 @@
                         <div class="report-dead">Death</div>
                     </div>
 
-                    <div class="report-menu">
+                    <div class="report-menu updown">
                         <div class="report-list">
                             <div class="report-stt">STT</div>
                             <div class="report-year">Year</div>
@@ -514,18 +527,18 @@
             </div>
 
             <div class="report-achivement">
-                <h1 class="report-title">Báo cáo tăng giảm</h1>
+                <h1 class="report-title">Báo cáo thành tích</h1>
                 <div class="report-info">
                     <div class="report-box">
                         <p class="report-text">Từ năm</p>
-                        <p class="report-text">2003</p>
+                        <p class="report-achivement__from"></p>
                     </div>
                     <div class="report-icon">
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                     <div class="report-box">
                         <p class="report-text">Đến năm</p>
-                        <p class="report-text">2013</p>
+                        <p class="report-achivement__to"></p>
                     </div>
                 </div>
 
@@ -536,24 +549,13 @@
                         <div class="report-count">Số lượng</div>
                     </div>
 
-                    <div class="report-menu">
-                        <div class="report-list">
-                            <div class="report-stt">STT</div>
-                            <div class="report-type">Year</div>
-                            <div class="report-count">Birth</div>
-                        </div>
-                        <div class="report-list">
-                            <div class="report-stt">STT</div>
-                            <div class="report-type">Year</div>
-                            <div class="report-count">Birth</div>
-                        </div>
-                    </div>
+                    <div class="report-menu achivement"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="toast">
+    <div class="toast animate__animated">
         <div class="toast-container">
 
         </div>
@@ -586,6 +588,7 @@
         </div>  
     </div>
 
+    <script src="./assets/js/funcDelete.js"></script>
     <script src="./assets/js/introduction.js"></script>
     <script src="./assets/js/render.js"></script>
     <script src="./assets/js/boxup.js"></script>
@@ -593,8 +596,9 @@
     <script src="./assets/js/submitFormSearch.js"></script>
     <script src="./assets/js/login.js"></script>
     <script src="./assets/js/checkinLogin.js"></script>
-    <script src="./assets/js/delete.js"></script>
-    <script src="./assets/js/update.js"></script>
+    <script src="./assets/js/toast.js"></script>
+    <script src="./assets/js/showOption.js"></script>
+    <script src="./assets/js/submitReport.js"></script>
 </body>
 
 </html>

@@ -20,8 +20,6 @@ submitAddMember.addEventListener('click', function (event) {
     const jobInput = document.querySelector('#job.Buttery-White-hover');
 
 
-
-
     const fullname = fullnameInput.value;
     const oldMember = idMemberInput.value;
     const sex = sexInput.value;
@@ -32,9 +30,8 @@ submitAddMember.addEventListener('click', function (event) {
     const address = addressInput.value;
     const job = jobInput.value;
 
-    console.log(fullname, oldMember, sex, relation, birthday, relationday, country, address, job)
-
-
+    
+    
     let formData = new FormData();
     formData.append('name', fullname);
     formData.append('sex', sex);
@@ -43,9 +40,13 @@ submitAddMember.addEventListener('click', function (event) {
     formData.append('id_relation', relation);
     formData.append('id_job', job);
     formData.append('id_home_town', country);
-    formData.append('id_old_member', oldMember);
+    console.log(oldMember)
+    if (oldMember != -1) {
+        formData.append('id_old_member', oldMember);
+    }
     formData.append('create_at', relationday);
-
+    
+    console.log(fullname, oldMember, sex, relation, birthday, relationday, country, address, job)
 
     fetch('http://192.168.20.156:5002/member', {
         method: 'POST',
@@ -78,6 +79,35 @@ submitAddMember.addEventListener('click', function (event) {
 
 })
 
+let memberCodeEnd = document.querySelector('#fullname.Prussian-Blue-hover')
+let idMemberCodeEnd
+let memberCodeEndoption = $('#oldMember.Prussian-Blue-hover')
+
+memberCodeEnd.onblur = () => {
+    idMemberCodeEnd = memberCodeEnd.value
+    console.log(idMemberCodeEnd)
+    url = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(idMemberCodeEnd)
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            let members = data['members']
+            let htmls = ['<option value="-1">-- Option --</option>']
+            htmls.push(members.map((member) => {
+                return `
+                        <option value="${member.id}">${member.id}</option> 
+                    `
+            }))
+
+            memberCodeEndoption.innerHTML = htmls.join('\n')
+        })
+        .catch(error => {
+
+            // Handle any errors that occur
+        });
+
+
+}
 
 submitNoticeTheEnd.addEventListener('click', function (event) {
     event.preventDefault(); // Ngăn chặn hành vi mặc định của nút submit
@@ -86,12 +116,16 @@ submitNoticeTheEnd.addEventListener('click', function (event) {
     const deathdayInput = document.querySelector('#deathDay.Prussian-Blue-hover');
     const reasonDeathInput = document.querySelector('#reasonDeath.Prussian-Blue-hover');
     const burialInput = document.querySelector('#burial.Prussian-Blue-hover');
+    const oldMemberInput = document.querySelector('#oldMember.Prussian-Blue-hover');
 
 
     const fullname = fullnameInput.value;
     const deathday = deathdayInput.value;
     const reasonDeath = reasonDeathInput.value;
     const burial = burialInput.value;
+    const oldMember = oldMemberInput.value;
+
+
 
 
     let formData = new FormData();
@@ -99,6 +133,7 @@ submitNoticeTheEnd.addEventListener('click', function (event) {
     formData.append('dead_date', deathday);
     formData.append('id_reason', reasonDeath);
     formData.append('id_dead_location', burial);
+    formData.append('id_member', oldMember);
 
     fetch('http://192.168.20.156:5002/end', {
         method: 'POST',
@@ -131,23 +166,56 @@ submitNoticeTheEnd.addEventListener('click', function (event) {
 
 })
 
+let memberCodeAchivement = document.querySelector('#fullname.Yellow-hover')
+let idMemberCodeAchivement
+let memberCodeAchivementoption = $('#oldMember.Yellow-hover')
+
+memberCodeAchivement.onblur = () => {
+    idMemberCodeAchivement = memberCodeAchivement.value
+    console.log(idMemberCodeAchivement)
+    url = 'http://192.168.20.156:5002/member?name=' + encodeURIComponent(idMemberCodeAchivement)
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            let members = data['members']
+            let htmls = ['<option value="-1">-- Option --</option>']
+            htmls.push(members.map((member) => {
+                return `
+                        <option value="${member.id}">${member.id}</option> 
+                    `
+            }))
+
+            memberCodeAchivementoption.innerHTML = htmls.join('\n')
+        })
+        .catch(error => {
+
+            // Handle any errors that occur
+        });
+
+
+}
+
 submitAddAchivement.addEventListener('click', function (event) {
     event.preventDefault(); // Ngăn chặn hành vi mặc định của nút submit
 
     const fullnameInput = document.querySelector('#fullname.Yellow-hover');
-    const achivementTypeInput = document.querySelector('#oldMember.Yellow-hover');
+    const achivementTypeInput = document.querySelector('#achivement.Yellow-hover');
     const awardDayInput = document.querySelector('#achivementDay.Yellow-hover');
+    const oldMemberInput = document.querySelector('#oldMember.Yellow-hover');
 
 
     const fullname = fullnameInput.value;
     const achivementType = achivementTypeInput.value;
     const awardDay = awardDayInput.value;
+    const oldMember = oldMemberInput.value
 
 
     let formData = new FormData();
     formData.append('name', fullname);
     formData.append('date', awardDay);
     formData.append('id_achievement_type', achivementType);
+    formData.append('id_member', oldMember);
 
     fetch('http://192.168.20.156:5002/achievement', {
         method: 'POST',

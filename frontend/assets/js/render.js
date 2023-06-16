@@ -25,6 +25,20 @@ const render = {
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
+                let htmls = ['<option value="-1">-- Option --</option>']
+
+                optionIdMemberAddAchivement.innerHTML = htmls.join('\n')
+                optionIdMemberNoticeTheEnd.innerHTML = htmls.join('\n')
+                optionIdMemberSearch.innerHTML = htmls.join('\n')
+
+            })
+            .catch(error => {
+                // Handle any errors that occur
+            });
+        fetch('http://192.168.20.156:5002/all_members')
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data[''])
                 let members = data['members']
                 let htmls = ['<option value="-1">-- Option --</option>']
                 htmls.push(members.map((member) => {
@@ -33,12 +47,9 @@ const render = {
                     `
                 }))
 
-                optionIdMemberAddAchivement.innerHTML = htmls.join('\n')
-                optionIdMemberNoticeTheEnd.innerHTML = htmls.join('\n')
                 optionIdMemberAddMember.innerHTML = htmls.join('\n')
-                optionIdMemberSearch.innerHTML = htmls.join('\n')
                 optionOldMemberBox.innerHTML = htmls.join('\n')
-                
+
             })
             .catch(error => {
                 // Handle any errors that occur
@@ -61,7 +72,7 @@ const render = {
 
                 optionAchivementType.innerHTML = htmls.join('\n')
                 optionAchivementBox.innerHTML = htmls.join('\n')
-                
+
             })
             .catch(error => {
                 // Handle any errors that occur
@@ -84,7 +95,7 @@ const render = {
 
                 optionDeathLocation.innerHTML = htmls.join('\n')
                 optionBurialBox.innerHTML = htmls.join('\n')
-                
+
             })
             .catch(error => {
                 // Handle any errors that occur
@@ -108,7 +119,7 @@ const render = {
                 optionRelationAddMember.innerHTML = htmls.join('\n')
                 optionRelationSearch.innerHTML = htmls.join('\n')
                 optionRelateBox.innerHTML = htmls.join('\n')
-                
+
             })
             .catch(error => {
                 // Handle any errors that occur
@@ -131,7 +142,7 @@ const render = {
 
                 optionReasonDeath.innerHTML = htmls.join('\n')
                 optionReasonBox.innerHTML = htmls.join('\n')
-                
+
             })
             .catch(error => {
                 // Handle any errors that occur
@@ -154,7 +165,7 @@ const render = {
 
                 optionCountry.innerHTML = htmls.join('\n')
                 optionCountryBox.innerHTML = htmls.join('\n')
-                
+
             })
             .catch(error => {
                 // Handle any errors that occur
@@ -177,7 +188,7 @@ const render = {
 
                 optionJob.innerHTML = htmls.join('\n')
                 optionJobBox.innerHTML = htmls.join('\n')
-                
+
             })
             .catch(error => {
                 // Handle any errors that occur

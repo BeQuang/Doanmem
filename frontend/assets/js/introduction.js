@@ -146,7 +146,6 @@ let buttonClose = $('.introduction-icon')
 
 buttons.forEach((item) => {
     item.onclick = () => {
-        console.log("a");
         if(getCookie("loggedIn")) {
             infoboards.forEach((item) => {
                 item.style.display = 'none'

@@ -85,19 +85,19 @@ submitAddMember.addEventListener('click', function (event) {
         .then(response => response.json())
         .then(data => {
             // Handle the response data here
-            let toast = $('.toast')
-            toast.style.display = 'flex';
-
-            let mess = $('.toast-container')
-
-            mess.innerHTML = '<span class="toast-mess">Success</span>'
-            mess.classList.add('animate__zoomIn')
-
+            
             console.log(data.code)
             if (data.code === 614 || data.code === 900) {
                 formValidAddMember.style.display = 'flex'
             }
             else if (data.code === 1000) {
+                let toast = $('.toast')
+                toast.style.display = 'flex';
+    
+                let mess = $('.toast-container')
+    
+                mess.innerHTML = '<span class="toast-mess">Success</span>'
+                mess.classList.add('animate__zoomIn')
                 formValidAddMember.style.display = 'none'
             }
 
@@ -172,19 +172,19 @@ submitNoticeTheEnd.addEventListener('click', function (event) {
         .then(response => response.json())
         .then(data => {
             // Handle the response data here
-            let toast = $('.toast')
-            toast.style.display = 'flex';
-
-            let mess = $('.toast-container')
-
-            mess.innerHTML = '<span class="toast-mess">Success</span>'
-            mess.classList.add('animate__zoomIn')
-            console.log(data.code)
-
+            
             if (data.code === 614 || data.code === 900) {
                 formValidEnd.style.display = 'flex'
             }
             else if (data.code === 1000) {
+                let toast = $('.toast')
+                toast.style.display = 'flex';
+    
+                let mess = $('.toast-container')
+    
+                mess.innerHTML = '<span class="toast-mess">Success</span>'
+                mess.classList.add('animate__zoomIn')
+                console.log(data.code)
                 formValidEnd.style.display = 'none'
             }
         })
@@ -254,19 +254,19 @@ submitAddAchivement.addEventListener('click', function (event) {
         .then(response => response.json())
         .then(data => {
             // Handle the response data here
-            let toast = $('.toast')
-            toast.style.display = 'flex';
-
-            let mess = $('.toast-container')
-
-            mess.innerHTML = '<span class="toast-mess">Success</span>'
-            mess.classList.add('animate__zoomIn')
-            console.log(data)
-
+            
             if (data.code === 614 || data.code === 900) {
                 formValidAchivement.style.display = 'flex'
             }
             else if (data.code === 1000) {
+                let toast = $('.toast')
+                toast.style.display = 'flex';
+    
+                let mess = $('.toast-container')
+    
+                mess.innerHTML = '<span class="toast-mess">Success</span>'
+                mess.classList.add('animate__zoomIn')
+                console.log(data)
                 formValidAchivement.style.display = 'none'
             }
         })

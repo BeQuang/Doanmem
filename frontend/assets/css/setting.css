@@ -6,14 +6,13 @@
     right: 0;
     background: rgba(0, 0, 0, 0.4);
     display: none;
+    /* display: flex; */
 }
 .displayNone{
     display: none;
 }
 #settingContainer{
     position: absolute;
-    top: 50vh;
-    left: 50vw;
     transform: translate(-50%, -50%);
     width: 70%;
     height: 60%;
@@ -40,13 +39,6 @@
 .setting-icon:hover {
     opacity: 0.5;
 }
-
-#settingContainer .settingContentContainer{
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-}
 #settingContainer .settingTittle{
     width: 100%;
     text-align: center;
@@ -66,12 +58,6 @@
 }
 #settingContainer .label{
     font-weight: bold;
-}
-#settingContainer .ChooseTable{
-
-}
-#settingContainer .ChooseTable{
-
 }
 .chooseTableContainer select{
     min-width: 40%;
@@ -200,7 +186,7 @@
     background-color:var(--primary-Saimon-color);
 }
 .tableList .tableItemContainer{
-    /* width: 200px; */
+    width: 100%;
     /* display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -268,9 +254,6 @@
 .buttonBox .deleteButton:hover{
     background-color: #FF7F75;
     cursor: pointer;
-}
-.buttonBox .deleteButton i{
-
 }
 .tableContent:hover .buttonBox{
     display: flex;

@@ -31,7 +31,7 @@
     cursor: pointer;
 }
 
-.login-content{
+.login-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,7 +103,8 @@
     color: #021E66;
 }
 
-.login-button, .logout-button {
+.login-button,
+.logout-button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -131,7 +132,8 @@
 
 
     color: #FFFFFF;
-    cursor: pointer;;
+    cursor: pointer;
+    ;
 
 }
 
@@ -156,29 +158,36 @@
 .tooltip {
     position: relative;
 }
-  
+
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 320px;
-    background-color: #fff;
+    /* width: 320px; */
+    background-color: var(--primary-Buttery-White-color);
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.4rem;
     line-height: 20px;
     text-align: center;
     box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
     border-radius: 6px;
-    padding: 20px;
-
-    /* Position the tooltip */
+    padding: 16px;
     position: absolute;
     z-index: 1;
-    top: 130%;
-    left: -230%;
+    top: 161%;
+    right: 0%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    width: 145px;
+    height: 20px;
+    color: transparent;
+    top: -12px;
 }
 
 .tooltip:hover .tooltiptext {
@@ -186,15 +195,18 @@
 }
 
 .tooltip-logout {
-    background: #FF7F75;
+    background: var(--primary-Saimon-color);
     border-radius: 5px;
     color: #242424;
-    padding: 10px 30px 10px 30px
+    padding: 10px 22px 10px 22px;
+    min-width: 92px;
 }
 
 .tooltip-settings {
-    background: #021E66;
+    background: var(--primary-Prussian-Blue-color);
     border-radius: 5px;
     color: #fff;
-    padding: 10px 30px 10px 30px
+    padding: 10px 22px 10px 22px;
+    margin: 12px;
+    min-width: 92px;
 }

@@ -39,8 +39,8 @@ const render = {
             .then(response => response.json())
             .then(data => {
                 // console.log(data[''])
-                let members = data['members']
                 let htmls = ['<option value="-1">-- Option --</option>']
+                let members = data['members']
                 htmls.push(members.map((member) => {
                     return `
                         <option value="${member.id}">${member.name}</option> 
@@ -115,9 +115,7 @@ const render = {
                         <option value="${realtion.id}">${realtion.name}</option> 
                     `
                 }))
-
                 optionRelationAddMember.innerHTML = htmls.join('\n')
-                optionRelationSearch.innerHTML = htmls.join('\n')
                 optionRelateBox.innerHTML = htmls.join('\n')
 
             })

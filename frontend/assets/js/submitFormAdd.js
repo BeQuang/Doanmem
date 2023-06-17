@@ -60,52 +60,60 @@ submitAddMember.addEventListener('click', function (event) {
     const address = addressInput.value;
     const job = jobInput.value;
 
-    
-    
-    let formData = new FormData();
-    formData.append('name', fullname);
-    formData.append('sex', sex);
-    formData.append('birthday', birthday);
-    formData.append('address', address);
-    formData.append('id_relation', relation);
-    formData.append('id_job', job);
-    formData.append('id_home_town', country);
-    console.log(oldMember)
-    if (oldMember != -1) {
-        formData.append('id_old_member', oldMember);
+    console.log(oldMember, relation)
+    if (birthday > relationday || oldMember != -1 && relation == -1 || relation != -1 && oldMember == -1) {
+        formValidAddMember.style.display = 'flex'
     }
-    formData.append('create_at', relationday);
-    
-    console.log(fullname, oldMember, sex, relation, birthday, relationday, country, address, job)
+    else {
+        formValidAddMember.style.display = 'none'
+        let formData = new FormData();
+        formData.append('name', fullname);
+        formData.append('sex', sex);
+        formData.append('birthday', birthday);
+        formData.append('address', address);
+        formData.append('id_relation', relation);
+        formData.append('id_job', job);
+        formData.append('id_home_town', country);
+        console.log(oldMember)
+        if (oldMember != -1) {
+            formData.append('id_old_member', oldMember);
+        }
+        formData.append('create_at', relationday);
 
-    fetch('http://192.168.20.156:5002/member', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response data here
-            let toast = $('.toast')
-            toast.style.display = 'flex';
+        // console.log(fullname, oldMember, sex, relation, birthday, relationday, country, address, job)
 
-            let mess = $('.toast-container')
-
-            mess.innerHTML = '<span class="toast-mess">Success</span>'
-            mess.classList.add('animate__zoomIn')
-
-            console.log(data.code)
-            if (data.code === 614 || data.code === 900) {
-                formValidAddMember.style.display = 'flex'
-            }
-            else if (data.code === 1000) {
-                formValidAddMember.style.display = 'none'
-            }
-
+        fetch('http://192.168.20.156:5002/member', {
+            method: 'POST',
+            body: formData
         })
-        .catch(error => {
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data here
 
-            // Handle any errors that occur
-        });
+                console.log(data.code)
+                if (data.code === 614 || data.code === 900) {
+                    formValidAddMember.style.display = 'flex'
+                }
+                else if (data.code === 1000) {
+                    let toast = $('.toast')
+                    toast.style.display = 'flex';
+
+                    let mess = $('.toast-container')
+
+                    mess.innerHTML = '<span class="toast-mess">Success</span>'
+                    mess.classList.add('animate__zoomIn')
+                    formValidAddMember.style.display = 'none'
+                }
+
+            })
+            .catch(error => {
+
+                // Handle any errors that occur
+            });
+    }
+
+
+
 
 })
 
@@ -172,19 +180,19 @@ submitNoticeTheEnd.addEventListener('click', function (event) {
         .then(response => response.json())
         .then(data => {
             // Handle the response data here
-            let toast = $('.toast')
-            toast.style.display = 'flex';
-
-            let mess = $('.toast-container')
-
-            mess.innerHTML = '<span class="toast-mess">Success</span>'
-            mess.classList.add('animate__zoomIn')
-            console.log(data.code)
 
             if (data.code === 614 || data.code === 900) {
                 formValidEnd.style.display = 'flex'
             }
             else if (data.code === 1000) {
+                let toast = $('.toast')
+                toast.style.display = 'flex';
+
+                let mess = $('.toast-container')
+
+                mess.innerHTML = '<span class="toast-mess">Success</span>'
+                mess.classList.add('animate__zoomIn')
+                console.log(data.code)
                 formValidEnd.style.display = 'none'
             }
         })
@@ -254,19 +262,19 @@ submitAddAchivement.addEventListener('click', function (event) {
         .then(response => response.json())
         .then(data => {
             // Handle the response data here
-            let toast = $('.toast')
-            toast.style.display = 'flex';
-
-            let mess = $('.toast-container')
-
-            mess.innerHTML = '<span class="toast-mess">Success</span>'
-            mess.classList.add('animate__zoomIn')
-            console.log(data)
 
             if (data.code === 614 || data.code === 900) {
                 formValidAchivement.style.display = 'flex'
             }
             else if (data.code === 1000) {
+                let toast = $('.toast')
+                toast.style.display = 'flex';
+
+                let mess = $('.toast-container')
+
+                mess.innerHTML = '<span class="toast-mess">Success</span>'
+                mess.classList.add('animate__zoomIn')
+                console.log(data)
                 formValidAchivement.style.display = 'none'
             }
         })

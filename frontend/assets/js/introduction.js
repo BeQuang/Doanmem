@@ -65,12 +65,6 @@ buttonForm = function(
     board
 ) {
     button.onclick = () => {
-        if(name === "addMember" || name === "addAchivement" || name === "noticeTheEnd") {
-            if(!getCookie("loggedIn")) {
-                loginTrigger();
-                return;
-            }
-        }
         listitems.forEach((item) => {
             item.style.backgroundColor = `var(${colorBg})`
             item.style.color = `var(${colorText})` 
@@ -94,6 +88,16 @@ buttonForm = function(
         messValids.forEach((message) => {
             message.style.display = 'none'
         })
+
+        infoboards.forEach((item) => {
+            item.style.display = 'flex'
+        })
+
+        infoForms.forEach((item) => {
+            item.style.display = 'none'
+        })
+
+        buttonClose.style.display = 'none'
     }
     
 }
@@ -146,7 +150,9 @@ let buttonClose = $('.introduction-icon')
 
 buttons.forEach((item) => {
     item.onclick = () => {
-        if(getCookie("loggedIn")) {
+        if(!getCookie("loggedIn") && (item.id === "add-achivement-start" || item.id === "add-end-start" || item.id === "add-member-start")) {
+            loginTrigger();
+        } else {
             infoboards.forEach((item) => {
                 item.style.display = 'none'
             })
@@ -156,8 +162,6 @@ buttons.forEach((item) => {
             })
     
             buttonClose.style.display = 'block'
-        } else {
-            loginTrigger();
         }
     }
 })

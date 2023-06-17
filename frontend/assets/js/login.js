@@ -60,7 +60,7 @@ function getCookie(cname) {
 
 window.addEventListener("load", () => {
     if(getCookie("loggedIn")) {
-        document.querySelector('.nav-login-title').innerHTML = "admin";
+        document.querySelector('.nav-login-title').innerHTML = "admin"; 
     } else {
         document.querySelector('.tooltiptext').style.display = 'none';
     }

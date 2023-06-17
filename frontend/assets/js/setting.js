@@ -4,6 +4,16 @@ let settingClose = $('.setting-icon')
 let containerSetting = $('#settingContainer')
 let bgSetting = $('#mainContainer')
 
+// window.addEventListener('load', (event) => {
+//     setting.style.display = 'none';
+//     containerSetting.classList.remove('animate__fadeInDown')
+// })
+
+document.querySelector(".tooltip-settings").addEventListener('click', (event) => {
+    setting.style.display = 'block';
+    containerSetting.classList.add('animate__fadeInDown')
+})
+
 settingClose.onclick = () => {
     setting.style.display = 'none'
     containerSetting.classList.remove('animate__fadeInDown')
@@ -425,3 +435,18 @@ popupEditClose.onclick = () => {
     containerPopupEdit.classList.remove('animate__fadeInDown')
 }
 
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}

@@ -115,9 +115,7 @@ const render = {
                         <option value="${realtion.id}">${realtion.name}</option> 
                     `
                 }))
-
                 optionRelationAddMember.innerHTML = htmls.join('\n')
-                optionRelationSearch.innerHTML = htmls.join('\n')
                 optionRelateBox.innerHTML = htmls.join('\n')
 
             })

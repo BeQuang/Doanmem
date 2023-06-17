@@ -22,7 +22,7 @@ reportSubmit.onclick = () => {
 
     console.log(fromValue, toValue, reportOptionValue)
 
-    if (!fromValue || !toValue || fromValue >= 2024 || fromValue >= toValue || toValue >= 2024) {
+    if (!fromValue || !toValue || fromValue >= 2023 || fromValue > toValue || toValue >= 2023) {
         messValid.style.display = 'block'
     }
     else {
@@ -34,8 +34,8 @@ reportSubmit.onclick = () => {
 
             report.style.display = 'flex'
             containerReport.classList.add('animate__bounceInDown')
-            textAchivementFrom.innerText = fromValue
-            textAchivementTo.innerText = toValue
+            textUpDownFrom.innerText = fromValue
+            textUpDownTo.innerText = toValue
 
             fetch(urlAchievement)
                 .then(response => response.json())

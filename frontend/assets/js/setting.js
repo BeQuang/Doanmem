@@ -1,8 +1,13 @@
+let buttonSetting = $('.tooltip-item.tooltip-settings')
 let setting = $('#mainContainer')
-
 let settingClose = $('.setting-icon')
 let containerSetting = $('#settingContainer')
 let bgSetting = $('#mainContainer')
+
+buttonSetting.onclick = () => {
+    setting.style.display = 'flex'
+    containerSetting.classList.add('animate__fadeInDown')
+}
 
 settingClose.onclick = () => {
     setting.style.display = 'none'
@@ -78,6 +83,10 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
                 id,
                 value,
                 type,
+                types,
+                codeTitle,
+                nameTitle,
+                typeValue
             ) {
                 let formData = new FormData();
                 // console.log(IDtoDelete, inputtTag.value)
@@ -97,6 +106,63 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
                         mess.innerHTML = '<span class="toast-mess">Success</span>'
                         mess.classList.remove('animate__zoomIn')
                         mess.classList.add('animate__zoomIn')
+                        fetch(`http://192.168.20.156:5002/${types}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                // console.log(data)
+                                let table = [[codeTitle, nameTitle]]
+                                for (let i = 0; i < data[typeValue].length; i++) {
+                                    let dataAdd = [`${data[typeValue][i].id}`, `${data[typeValue][i].name}`]
+                                    table.push(dataAdd)
+                                }
+                                console.log(table)
+                                const tableList = $('.tableList')
+                                tableListInnerHTML = [`
+                                <li class="columnTitle">
+                                    <div class="tableItemContainer">
+                                        <div class="firstColumn">
+                                        ${table[0][0]}
+                                        </div>
+                                        <div class="secondColumn">
+                                        ${table[0][1]}
+                                        </div>
+                                        <div class="buttonBox">
+                                            <div class="addButton">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </li>`]
+                                for (let i = 1; i < table.length; i++) {
+                                    tableListInnerHTML.push(`
+                                    <li class="tableContent">
+                                        <div class="tableItemContainer">
+                                            <div class="firstColumn">
+                                            ${table[i][0]}
+                                            </div>
+                                            <div class="secondColumn">
+                                            ${table[i][1]}
+                                            </div>
+                                            <div class="buttonBox">
+                                                <div class="editButton">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </div>
+                                                <div class="deleteButton">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>`)
+                                }
+
+                                console.log(tableListInnerHTML)
+                                tableList.innerHTML = tableListInnerHTML.join('')
+                                ButtonEvent()
+                            })
+                            .catch(error => {
+
+                                // Handle any errors that occur
+                            });
                     })
                     .catch(error => {
 
@@ -106,7 +172,11 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
 
             delete: function (
                 id,
-                type
+                type,
+                types,
+                codeTitle,
+                nameTitle,
+                typeValue
             ) {
                 let formData = new FormData();
                 // console.log(IDtoDelete, inputtTag.value)
@@ -125,15 +195,76 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
                         mess.innerHTML = '<span class="toast-mess">Success</span>'
                         mess.classList.remove('animate__zoomIn')
                         mess.classList.add('animate__zoomIn')
+                        fetch(`http://192.168.20.156:5002/${types}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                // console.log(data)
+                                let table = [[codeTitle, nameTitle]]
+                                for (let i = 0; i < data[typeValue].length; i++) {
+                                    let dataAdd = [`${data[typeValue][i].id}`, `${data[typeValue][i].name}`]
+                                    table.push(dataAdd)
+                                }
+                                console.log(table)
+                                const tableList = $('.tableList')
+                                tableListInnerHTML = [`
+                                <li class="columnTitle">
+                                    <div class="tableItemContainer">
+                                        <div class="firstColumn">
+                                        ${table[0][0]}
+                                        </div>
+                                        <div class="secondColumn">
+                                        ${table[0][1]}
+                                        </div>
+                                        <div class="buttonBox">
+                                            <div class="addButton">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </li>`]
+                                for (let i = 1; i < table.length; i++) {
+                                    tableListInnerHTML.push(`
+                                    <li class="tableContent">
+                                        <div class="tableItemContainer">
+                                            <div class="firstColumn">
+                                            ${table[i][0]}
+                                            </div>
+                                            <div class="secondColumn">
+                                            ${table[i][1]}
+                                            </div>
+                                            <div class="buttonBox">
+                                                <div class="editButton">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </div>
+                                                <div class="deleteButton">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>`)
+                                }
+
+                                console.log(tableListInnerHTML)
+                                tableList.innerHTML = tableListInnerHTML.join('')
+                                ButtonEvent()
+                            })
+                            .catch(error => {
+
+                                // Handle any errors that occur
+                            });
                     })
                     .catch(error => {
                         // Handle any errors that occur
                     });
             },
 
-            update: function(
+            update: function (
                 value,
-                type
+                type,
+                types,
+                codeTitle,
+                nameTitle,
+                typeValue
             ) {
                 let formData = new FormData();
                 formData.append('name', value)
@@ -150,6 +281,63 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
                         mess.innerHTML = '<span class="toast-mess">Success</span>'
                         mess.classList.remove('animate__zoomIn')
                         mess.classList.add('animate__zoomIn')
+                        fetch(`http://192.168.20.156:5002/${types}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                // console.log(data)
+                                let table = [[codeTitle, nameTitle]]
+                                for (let i = 0; i < data[typeValue].length; i++) {
+                                    let dataAdd = [`${data[typeValue][i].id}`, `${data[typeValue][i].name}`]
+                                    table.push(dataAdd)
+                                }
+                                console.log(table)
+                                const tableList = $('.tableList')
+                                tableListInnerHTML = [`
+                                <li class="columnTitle">
+                                    <div class="tableItemContainer">
+                                        <div class="firstColumn">
+                                        ${table[0][0]}
+                                        </div>
+                                        <div class="secondColumn">
+                                        ${table[0][1]}
+                                        </div>
+                                        <div class="buttonBox">
+                                            <div class="addButton">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </li>`]
+                                for (let i = 1; i < table.length; i++) {
+                                    tableListInnerHTML.push(`
+                                    <li class="tableContent">
+                                        <div class="tableItemContainer">
+                                            <div class="firstColumn">
+                                            ${table[i][0]}
+                                            </div>
+                                            <div class="secondColumn">
+                                            ${table[i][1]}
+                                            </div>
+                                            <div class="buttonBox">
+                                                <div class="editButton">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </div>
+                                                <div class="deleteButton">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>`)
+                                }
+
+                                console.log(tableListInnerHTML)
+                                tableList.innerHTML = tableListInnerHTML.join('')
+                                ButtonEvent()
+                            })
+                            .catch(error => {
+
+                                // Handle any errors that occur
+                            });
                     })
                     .catch(error => {
 
@@ -191,10 +379,10 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
                                         ${Content}
                                         </div>
                                         <div class="buttonBox">
-                                        <div class="addButton">
-                                            <i class="fa-solid fa-plus"></i>
+                                            <div class="addButton">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div> 
                                 </li>`
 
@@ -258,22 +446,22 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
                                     console.log(typeSubmit)
                                     switch (typeSubmit) {
                                         case '0':
-                                            Setting.edit(IDtoDelete, inputtTag.value, 'home_town')
+                                            Setting.edit(IDtoDelete, inputtTag.value, 'home_town', 'all_home_towns', 'MaQueQuan', 'TenQueQuan', 'home_towns')
                                             break;
                                         case '1':
-                                            Setting.edit(IDtoDelete, inputtTag.value, 'job')
+                                            Setting.edit(IDtoDelete, inputtTag.value, 'job', 'all_jobs', 'MaNgheNghiep', 'TenNgheNghiep', 'jobs')
                                             break;
                                         case '2':
-                                            Setting.edit(IDtoDelete, inputtTag.value, 'relation')
+                                            Setting.edit(IDtoDelete, inputtTag.value, 'relation', 'all_realtions', 'MaQuanHe', 'TenQuanHe', 'realtions')
                                             break;
                                         case '3':
-                                            Setting.edit(IDtoDelete, inputtTag.value, 'reason')
+                                            Setting.edit(IDtoDelete, inputtTag.value, 'reason', 'all_reasons', 'MaNguyenNhan', 'TenNguyenNhan', 'reasons')
                                             break;
                                         case '4':
-                                            Setting.edit(IDtoDelete, inputtTag.value, 'dead_location')
+                                            Setting.edit(IDtoDelete, inputtTag.value, 'dead_location', 'all_dead_locations', 'MaDiaDiemMaiTang', 'TenDiaDiemMaiTang', 'dead_locations')
                                             break;
                                         case '5':
-                                            Setting.edit(IDtoDelete, inputtTag.value, 'achievement_type')
+                                            Setting.edit(IDtoDelete, inputtTag.value, 'achievement_type', 'all_achievement_types', 'MaThanhTich', 'TenThanhTich', 'achievement_types')
                                             break;
                                     }
                                     // Nhớ kiểm tra input hợp lệ không
@@ -301,22 +489,22 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
                                 switch (typeSubmit) {
                                     case '0':
                                         console.log(IDtoDelete)
-                                        Setting.delete(IDtoDelete, 'home_town')
+                                        Setting.delete(IDtoDelete, 'home_town', 'all_home_towns', 'MaQueQuan', 'TenQueQuan', 'home_towns')
                                         break;
                                     case '1':
-                                        Setting.delete(IDtoDelete, 'job')
+                                        Setting.delete(IDtoDelete, 'job', 'all_jobs', 'MaNgheNghiep', 'TenNgheNghiep', 'jobs')
                                         break;
                                     case '2':
-                                        Setting.delete(IDtoDelete, 'relation')
+                                        Setting.delete(IDtoDelete, 'relation', 'all_realtions', 'MaQuanHe', 'TenQuanHe', 'realtions')
                                         break;
                                     case '3':
-                                        Setting.delete(IDtoDelete, 'reason')
+                                        Setting.delete(IDtoDelete, 'reason', 'all_reasons', 'MaNguyenNhan', 'TenNguyenNhan', 'reasons')
                                         break;
                                     case '4':
-                                        Setting.delete(IDtoDelete, 'dead_location')
+                                        Setting.delete(IDtoDelete, 'dead_location', 'all_dead_locations', 'MaDiaDiemMaiTang', 'TenDiaDiemMaiTang', 'dead_locations')
                                         break;
                                     case '5':
-                                        Setting.delete(IDtoDelete, 'achievement_type')
+                                        Setting.delete(IDtoDelete, 'achievement_type', 'all_achievement_types', 'MaThanhTich', 'TenThanhTich', 'achievement_types')
                                         break;
                                 }
                                 deletePopup.style.display = 'none'
@@ -349,22 +537,22 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6])
                             } else {
                                 switch (typeSubmit) {
                                     case '0':
-                                        Setting.update(inputtTag.value, 'home_town')
+                                        Setting.update(inputtTag.value, 'home_town', 'all_home_towns', 'MaQueQuan', 'TenQueQuan', 'home_towns')
                                         break;
                                     case '1':
-                                        Setting.update(inputtTag.value, 'job')
+                                        Setting.update(inputtTag.value, 'job', 'all_jobs', 'MaNgheNghiep', 'TenNgheNghiep', 'jobs')
                                         break;
                                     case '2':
-                                        Setting.update(inputtTag.value, 'relation')
+                                        Setting.update(inputtTag.value, 'relation', 'all_realtions', 'MaQuanHe', 'TenQuanHe', 'realtions')
                                         break;
                                     case '3':
-                                        Setting.update(inputtTag.value, 'reason')
+                                        Setting.update(inputtTag.value, 'reason', 'all_reasons', 'MaNguyenNhan', 'TenNguyenNhan', 'reasons')
                                         break;
                                     case '4':
-                                        Setting.update(inputtTag.value, 'dead_location')
+                                        Setting.update(inputtTag.value, 'dead_location', 'all_dead_locations', 'MaDiaDiemMaiTang', 'TenDiaDiemMaiTang', 'dead_locations')
                                         break;
                                     case '5':
-                                        Setting.update(inputtTag.value, 'achievement_type')
+                                        Setting.update(inputtTag.value, 'achievement_type', 'all_achievement_types', 'MaThanhTich', 'TenThanhTich', 'achievement_types')
                                         break;
                                 }
                                 console.log(inputtTag.value)

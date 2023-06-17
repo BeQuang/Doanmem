@@ -27,6 +27,8 @@ reportSubmit.onclick = () => {
     }
     else {
         if (reportOptionValue == 1) {
+            reportAchivements.style.display = 'flex'
+            reportUpDown.style.display = 'none'
             messValid.style.display = 'none'
             let urlAchievement = `http://192.168.20.156:5002/achievement_members_report?start_year=${fromValue}&end_year=${toValue}`
 
@@ -40,8 +42,6 @@ reportSubmit.onclick = () => {
                 .then(data => {
                     // Handle the response data here
                     console.log(data['result'][0].TENLOAITHANHTICH)
-                    reportAchivements.style.display = 'flex'
-                    reportUpDown.style.display = 'none'
                     let count = 0
 
                     let results = data['result']
@@ -67,6 +67,8 @@ reportSubmit.onclick = () => {
                 });
         }
         else if (reportOptionValue == 0) {
+            reportUpDown.style.display = 'flex'
+            reportAchivements.style.display = 'none'
             messValid.style.display = 'none'
             let urlUpDown = `http://192.168.20.156:5002/increase_and_decrease_members?start_year=${fromValue}&end_year=${toValue}`
 
@@ -80,8 +82,6 @@ reportSubmit.onclick = () => {
                 .then(data => {
                     // Handle the response data here
                     console.log(data)
-                    reportUpDown.style.display = 'flex'
-                    reportAchivements.style.display = 'none'
                     let count = 0
 
                     let results = data['result']
@@ -114,23 +114,6 @@ reportSubmit.onclick = () => {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 reportClose.onclick = () => {
